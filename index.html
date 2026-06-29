@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultyDrink | Bienestar de Origen Colombiano</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAF8F0; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .pulse-glow { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+            50% { transform: scale(1.03); box-shadow: 0 0 20px 10px rgba(82, 183, 136, 0); }
+        }
+    </style>
+</head>
+<body class="text-gray-900 antialiased selection:bg-[#2D6A4F] selection:text-white">
+
+    <header class="fixed top-0 left-0 w-full z-50 glass border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-black text-[#1B4332] tracking-tight">Multy<span class="text-[#52B788]">Drink</span></span>
+            </div>
+            <span class="inline-flex items-center bg-[#E8F5E9] text-[#2D6A4F] text-xs font-bold px-3 py-1 rounded-full border border-[#52B788]/30">
+                🇨🇴 Orgullo 100% Colombiano
+            </span>
+        </div>
+    </header>
+
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#E8F5E9] via-[#FAF8F0] to-[#E8F5E9] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block bg-red-600 text-white text-xs font-black tracking-widest uppercase px-3 py-1.5 rounded-md mb-4 animate-bounce">
+                    💥 ¡RECIBE EL 20% DE DESCUENTO HOY! 💥
+                </span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1B4332] leading-tight mb-6">
+                    Conquista tu día con la fórmula perfecta de la <span class="text-[#52B788]">naturaleza</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Es el momento de conquistar al mundo con un producto único. <strong>MultyDrink</strong> combina la riqueza de nuestra tierra colombiana con una fórmula de nutrición celular profunda que transforma tu energía, digestión y vitalidad de forma inmediata.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#precios" class="pulse-glow inline-block text-center bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-base uppercase tracking-wide">
+                        Asegurar mi 20% de Descuento
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center items-center">
+                <div class="absolute w-96 h-96 bg-[#52B788]/20 rounded-full blur-3xl -z-10"></div>
+                <div class="bg-white border border-gray-100 p-2 rounded-3xl shadow-2xl overflow-hidden w-full max-w-lg">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800" alt="MultyDrink Producto Premium" class="w-full h-80 object-cover rounded-2xl">
+                    <div class="p-6 text-center">
+                        <span class="text-xs bg-[#52B788]/20 text-[#1B4332] font-extrabold px-3 py-1 rounded-full uppercase">Fórmula de Alta Pureza</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-3">Energía y Sanidad Total</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#1B4332] text-white">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-4 justify-center md:justify-start">
+                <span class="text-4xl">🇨🇴</span>
+                <div>
+                    <h4 class="text-xl font-bold">Iniciativa 100% Colombiana</h4>
+                    <p class="text-sm text-gray-300">Nuestra responsabilidad es hacer crecer el campo y llevar nuestra bandera a la cima de la industria mundial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ingredientes" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#2D6A4F] uppercase tracking-widest text-sm font-bold block mb-2">Ciencia y Naturaleza</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Los 5 Pilares de MultyDrink</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Una sinergia única diseñada meticulosamente para potenciar tu salud física, metabólica y mental.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-4xl mb-4">☕</div>
+                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">1. Mucílago de Café</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Nuestro ingrediente estrella de exportación. Es una fuente masiva de polifenoles y antioxidantes que protegen las células contra el envejecimiento, acelera el metabolismo graso y genera vitalidad limpia sin alterar el sistema nervioso.</p>
+                    </div>
+                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">★ Orgullo Nacional</span>
+                </div>
+
+                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-4xl mb-4">🍯</div>
+                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">2. Miel de Agave</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Un endulzante orgánico de bajo índice glucémico. Aporta carbohidratos de absorción lenta que mantienen estables los niveles de azúcar en la sangre, evitando los picos de fatiga y aportando energía constante.</p>
+                    </div>
+                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">🌱 100% Orgánico</span>
+                </div>
+
+                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-4xl mb-4">🍄</div>
+                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">3. Ganoderma Lucidum</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">El hongo de la inmortalidad. Actúa directamente en la modulación del sistema inmunológico, asiste en la oxigenación celular y promueve la resistencia física adaptógena frente al estrés diario.</p>
+                    </div>
+                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">🔬 Escudo Inmune</span>
+                </div>
+
+                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-4xl mb-4">🍃</div>
+                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">4. Té Negro</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Rico en teflavinas, mejora sustancialmente el enfoque de la concentración cognitiva y la salud cardiovascular, apoyando los procesos naturales de desintoxicación y digestión saludable.</p>
+                    </div>
+                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">⚡ Enfoque Mental</span>
+                </div>
+
+                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-4xl mb-4">🍇</div>
+                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">5. Extracto de Uva</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Cargado con resveratrol puro. Es un protector cardiovascular de alto impacto que optimiza la circulación sanguínea, combate la inflamación general y revitaliza los tejidos internos.</p>
+                    </div>
+                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">❤️ Salud Vascular</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-white to-[#FAF8F0]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#2D6A4F] uppercase tracking-widest text-sm font-bold block mb-2">Prueba Social Increíble</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900">Testimonios en Video</h2>
+                <p class="text-gray-600 mt-2">Observa los resultados reales narrados por nuestros consumidores y distribuidores.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col justify-between">
+                    <div class="relative aspect-video bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio 1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-gray-900 mb-2">Carlos Mendoza - Aumento de Energía Natural</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            "Llevaba meses batallando con la fatiga crónica por las tardes. Empecé a consumir MultyDrink y el cambio en mi resistencia física e inmunológica fue drástico, sin taquicardias."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col justify-between">
+                    <div class="relative aspect-video bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio 2" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-gray-900 mb-2">Elena Restrepo - Bienestar Digestivo</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            "Sufrió problemas de pesadez estomacal por años. El mucílago de café junto al ganoderma restauraron por completo mi tránsito intestinal. Recomiendo este producto al 100%."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col justify-between">
+                    <div class="relative aspect-video bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio 3" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg text-gray-900 mb-2">Andrés Castro - Enfoque de Distribuidor</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            "No solo es un producto ganador para la salud, sino una oportunidad comercial brillante y duplicable que está saneando las finanzas de cientos de familias colombianas."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="py-20 bg-gradient-to-b from-[#FAF8F0] to-[#E8F5E9] border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="text-center mb-16">
+                <span class="text-red-600 uppercase tracking-widest text-sm font-black block mb-2">Descuento del 20% Aplicado de Inmediato</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-[#1B4332] mb-4">Adquiere tu Kit Comercial</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Elige la opción que mejor se adapte a tus metas actuales de salud o emprendimiento financiero.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-1">Kit Básico</h3>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">1 Caja de MultyDrink</p>
+                            </div>
+                        </div>
+                        <div class="bg-[#FAF8F0] rounded-2xl py-8 text-center border border-dashed border-gray-200 mb-6 text-4xl">📦</div>
+                        <p class="text-gray-600 text-sm mb-6">Contiene 30 sobres de alta pureza. Perfecto para experimentar los primeros beneficios celulares de la fórmula.</p>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <span class="text-3xl font-extrabold text-gray-900">$150.000</span>
+                            <span class="text-sm text-gray-500 font-medium">/ COP</span>
+                        </div>
+                        <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20kit%20b%C3%A1sico%20de%201%20caja." 
+                           target="_blank" 
+                           class="w-full text-center block bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-bold py-3.5 px-6 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wide">
+                            Comprar 1 Caja
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-[#1B4332] text-white rounded-3xl p-8 shadow-2xl flex flex-col justify-between border-2 border-[#52B788] relative transform scale-105 z-10">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-black uppercase tracking-widest py-1.5 px-6 rounded-bl-2xl">20% OFF INCLUIDO</div>
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Kit Tratamiento</h3>
+                                <p class="text-xs text-[#52B788] uppercase tracking-wider font-bold">3 Cajas de MultyDrink</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl py-8 text-center border border-white/10 mb-6 text-4xl">📦 📦 📦</div>
+                        <p class="text-gray-200 text-sm mb-6"><strong>El más vendido.</strong> Tratamiento completo para consolidar la desintoxicación y regeneración celular. ¡Incluye Envío Gratis!</p>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="text-xs text-red-400 line-through">Precio Regular: $450.000</div>
+                            <span class="text-4xl font-black text-white">$360.000</span>
+                            <span class="text-sm text-[#52B788] font-medium">/ COP</span>
+                        </div>
+                        <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20la%20oferta%20popular%20de%203%20cajas." 
+                           target="_blank" 
+                           class="w-full text-center block bg-[#52B788] hover:bg-[#74C69D] text-[#1B4332] font-black py-4 px-6 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wide shadow-md">
+                            Asegurar Oferta de 3 Cajas
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-1">Kit Distribuidor</h3>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">6 Cajas de MultyDrink</p>
+                            </div>
+                            <span class="bg-[#E8F5E9] text-[#2D6A4F] text-xs px-2.5 py-1 rounded-full font-bold">Mayorista</span>
+                        </div>
+                        <div class="bg-[#FAF8F0] rounded-2xl py-8 text-center border border-dashed border-gray-200 mb-6 text-4xl">🏬💎</div>
+                        <p class="text-gray-600 text-sm mb-6">Perfecto para familias numerosas o emprendedores con visión de expansión comercial inmediata.</p>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <span class="text-3xl font-extrabold text-gray-900">$630.000</span>
+                            <span class="text-sm text-gray-500 font-medium">/ COP</span>
+                        </div>
+                        <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20paquete%20mayorista%20de%206%20cajas." 
+                           target="_blank" 
+                           class="w-full text-center block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 px-6 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wide">
+                            Ordenar Kit Mayorista
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-[#2D6A4F] uppercase tracking-widest text-sm font-bold block mb-2">Despeja tus dudas</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-2xl overflow-hidden bg-[#FAF8F0]">
+                    <button class="w-full text-left px-6 py-4 font-bold text-[#1B4332] flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>¿Qué es el mucílago de café y por qué es tan potente?</span>
+                        <span class="text-xl">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed">
+                        Es la capa gelatinosa que envuelve el grano de café. Históricamente descartada, hoy la ciencia demuestra que posee una concentración de antioxidantes y nutrientes celulares inigualable, aportando energía limpia sin causar taquicardia.
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden bg-[#FAF8F0]">
+                    <button class="w-full text-left px-6 py-4 font-bold text-[#1B4332] flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>¿Cómo se debe tomar MultyDrink?</span>
+                        <span class="text-xl">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed">
+                        Se recomienda disolver un sobre en un vaso de agua (fría o tibia) por las mañanas o antes de tus actividades físicas más exigentes para optimizar el rendimiento y la absorción de nutrientes del día.
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden bg-[#FAF8F0]">
+                    <button class="w-full text-left px-6 py-4 font-bold text-[#1B4332] flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
+                        <span>¿Tienen envíos a todo el territorio nacional?</span>
+                        <span class="text-xl">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed">
+                        Sí, despachamos de inmediato directamente desde la fábrica oficial a cualquier ciudad o municipio de Colombia. En el Kit de Tratamiento de 3 cajas el envío es completamente gratis.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#1B4332] text-gray-400 py-12 border-t border-white/10 text-center text-sm">
+        <p class="mb-2">&copy; 2026 MultyDrink. Todos los derechos reservados.</p>
+        <p>Orgullo e innovación de la industria de redes y bienestar en Colombia 🇨🇴.</p>
+    </footer>
+
+    <script>
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('span:last-child');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.textContent = '-';
+            } else {
+                content.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
+    </script>
+
+</body>
+</html>
