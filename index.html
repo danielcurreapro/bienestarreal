@@ -3,336 +3,928 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MultyDrink | Bienestar de Origen Colombiano</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>MultyDrink | Vitalidad Natural y Bienestar Celular</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FAF8F0; }
-        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .pulse-glow { animation: pulse 2s infinite; }
+        :root {
+            --primary-color: #164a27;       
+            --primary-dark: #10351c;        
+            --primary-light: #eef5ee;
+            --accent-color: #ff9800;        
+            --accent-hover: #e68a00;
+            --accent-gradient: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
+            --text-color: #2c3e50;
+            --text-muted: #5f758d;
+            --light-bg: #f4f8f4;            
+            --white: #ffffff;
+            --whatsapp-color: #25d366;
+            --whatsapp-gradient: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.92);
+            --glass-border: rgba(22, 74, 39, 0.08);
+            --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 30px rgba(16, 53, 28, 0.06);
+            --shadow-lg: 0 20px 40px rgba(16, 53, 28, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Estilos Generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px; 
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo, .btn, .discount-badge {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* HEADER Y MENÚ DE NAVEGACIÓN COMPLETO */
+        header {
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 22px;
+            background: var(--accent-gradient);
+            border-radius: 3px;
+            transform: skewX(-15deg);
+        }
+
+        /* Menú Escritorio */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.nav-btn {
+            background: var(--accent-gradient);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+        }
+
+        nav a.nav-btn::after { display: none; }
+
+        nav a.nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 152, 0, 0.35);
+        }
+
+        /* Botón de Menú Móvil (Hamburguesa) */
+        .menu-toggle {
+            display: none;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* ANIMACIONES AL HACER SCROLL (Clases Base) */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 60px 5% 100px 5%;
+            background: radial-gradient(circle at 80% 20%, #e8f0e9 0%, var(--light-bg) 50%);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 580px;
+        }
+
+        .discount-badge {
+            background-color: red;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Contenedores para Imágenes Grandes Premium */
+        .large-image-wrapper {
+            width: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--white);
+            position: relative;
+        }
+
+        .large-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .large-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        /* SECCIÓN INGREDIENTES */
+        .section-container {
+            padding: 100px 5%;
+            max-w: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .ingredient-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(22, 74, 39, 0.03);
+            transition: var(--transition);
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(22, 74, 39, 0.1);
+        }
+
+        .ingredient-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .ingredient-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        /* SECCIÓN TESTIMONIOS (VIDEOS CON DESCRIPCIÓN ABAJO) */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .video-card {
+            background-color: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Relación de aspecto 16:9 */
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            padding: 25px;
+        }
+
+        .video-description h4 {
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .video-description p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* SECCIÓN DE PACKS COMERCIALES (Traído de index.html) */
+        .pricing-section {
+            background-color: var(--white);
+            padding: 100px 5%;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1150px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .price-card {
+            background-color: var(--light-bg);
+            border-radius: 28px;
+            padding: 45px 35px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(22, 74, 39, 0.03);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .price-card.featured {
+            background-color: var(--white);
+            border: 3px solid var(--primary-color);
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .price-card.featured:hover {
+            transform: scale(1.03) translateY(-5px);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-gradient);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+
+        .price-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .price-pack-visual {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        .price-card .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .price-card .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .price-card .desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        /* COMPORTAMIENTO DEL FORMULARIO E HÍBRIDO PC/MÓVIL */
+        .form-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e5a32 100%);
+            color: var(--white);
+            padding: 100px 5%;
+        }
+
+        .form-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .form-info-side h2 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .form-info-side p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .main-form-box {
+            background-color: var(--white);
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+            color: var(--text-color);
+        }
+
+        .main-form-box h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f9fbf9;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: var(--white);
+        }
+
+        /* BOTONES COMUNES */
+        .btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--accent-gradient);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        /* PREGUNTAS FRECUENTES INTERACTIVAS */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 16px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-left: left;
+            padding: 22px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #fafdfa;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 22px 30px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0b1a0f;
+            color: #a2b4a7;
+            text-align: center;
+            padding: 40px 5%;
+            font-size: 0.9rem;
+        }
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
-            50% { transform: scale(1.03); box-shadow: 0 0 20px 10px rgba(82, 183, 136, 0); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* RESPONSIVE DESIGN: ADAPTACIÓN RADICAL PC VS MÓVIL */
+        @media (max-width: 992px) {
+            header { padding: 0 20px; }
+            .menu-toggle { display: block; }
+            
+            /* Navegación colapsable en móvil */
+            nav {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 15px 30px rgba(16, 53, 28, 0.08);
+                padding: 30px;
+                flex-direction: column;
+                gap: 20px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+                z-index: 999;
+            }
+
+            nav.mobile-open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            nav a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; }
+
+            /* Grid del Hero a 1 sola columna en celular */
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 40px;
+                padding-bottom: 60px;
+                gap: 40px;
+            }
+
+            .hero-text h1 { font-size: 2.4rem; }
+            .hero-text p { margin: 0 auto 30px auto; }
+
+            /* Grid del Formulario a 1 sola columna en celular */
+            .form-split-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-info-side { text-align: center; }
+            .form-info-side h2 { font-size: 2.1rem; }
+            .main-form-box { padding: 30px 20px; }
+
+            /* Ajustes en tarjetas de Packs para móvil */
+            .price-card.featured {
+                transform: scale(1);
+            }
+            .price-card.featured:hover {
+                transform: translateY(-5px);
+            }
+            .pricing-grid {
+                gap: 25px;
+            }
         }
     </style>
 </head>
-<body class="text-gray-900 antialiased selection:bg-[#2D6A4F] selection:text-white">
+<body>
 
-    <header class="fixed top-0 left-0 w-full z-50 glass border-b border-gray-200/50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl font-black text-[#1B4332] tracking-tight">Multy<span class="text-[#52B788]">Drink</span></span>
-            </div>
-            <span class="inline-flex items-center bg-[#E8F5E9] text-[#2D6A4F] text-xs font-bold px-3 py-1 rounded-full border border-[#52B788]/30">
-                🇨🇴 Orgullo 100% Colombiano
-            </span>
-        </div>
+    <header>
+        <a href="#" class="logo">MultyDrink</a>
+        <button class="menu-toggle" id="menuToggle">Menú</button>
+        <nav id="navMenu">
+            <a href="#inicio">Inicio</a>
+            <a href="#ingredientes">Ingredientes</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#packs">Packs de Bienestar</a>
+            <a href="#preguntas">Preguntas</a>
+            <a href="#contacto" class="nav-btn">Unirse Ahora</a>
+        </nav>
     </header>
 
-    <section class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#E8F5E9] via-[#FAF8F0] to-[#E8F5E9] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="inline-block bg-red-600 text-white text-xs font-black tracking-widest uppercase px-3 py-1.5 rounded-md mb-4 animate-bounce">
-                    💥 ¡RECIBE EL 20% DE DESCUENTO HOY! 💥
-                </span>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#1B4332] leading-tight mb-6">
-                    Conquista tu día con la fórmula perfecta de la <span class="text-[#52B788]">naturaleza</span>
-                </h1>
-                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    Es el momento de conquistar al mundo con un producto único. <strong>MultyDrink</strong> combina la riqueza de nuestra tierra colombiana con una fórmula de nutrición celular profunda que transforma tu energía, digestión y vitalidad de forma inmediata.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#precios" class="pulse-glow inline-block text-center bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-base uppercase tracking-wide">
-                        Asegurar mi 20% de Descuento
-                    </a>
+    <section class="hero" id="inicio">
+        <div class="hero-text">
+            <span class="discount-badge">💥 RECIBE EL 20% DE DESCUENTO HOY 💥</span>
+            <h1 class="scroll-animate">Nutrición Celular Profunda y Vitalidad</h1>
+            <p class="scroll-animate">Descubre el poder del Mucílago de Café colombiano combinado con extractos naturales premium para redefinir tu energía metabólica diaria.</p>
+            <div class="scroll-animate" style="max-width: 320px;">
+                <a href="#packs" class="btn btn-accent">Ver Ofertas Disponibles</a>
+            </div>
+        </div>
+        <div class="scroll-animate">
+            <div class="large-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800" alt="MultyDrink Frasco Premium">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" id="ingredientes">
+        <h2 class="section-title scroll-animate">Los 5 Pilares de la Fórmula</h2>
+        <div class="ingredients-grid">
+            <div class="ingredient-card scroll-animate">
+                <span class="ingredient-icon">☕</span>
+                <h3>Mucílago de Café</h3>
+                <p>Nuestra insignia nacional. Una fuente extraordinaria de polifenoles antioxidantes que protegen y rejuvenecen tus células, promoviendo energía limpia sin picos de ansiedad.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <span class="ingredient-icon">🍯</span>
+                <h3>Miel de Agave</h3>
+                <p>Endulzante orgánico natural con bajo índice glucémico. Aporta un combustible saludable y sostenido, protegiendo los niveles óptimos de glucosa en sangre.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <span class="ingredient-icon">🍄</span>
+                <h3>Ganoderma Lucidum</h3>
+                <p>El legendario hongo adaptógeno. Fortalece activamente la respuesta inmune, asiste en la oxigenación celular y combate el desgaste por estrés físico.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <span class="ingredient-icon">🍃</span>
+                <h3>Té Negro</h3>
+                <p>Aumenta los estados de enfoque, agudeza mental y concentración cognitiva, apoyando simultáneamente la digestión y la salud de las arterias.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <span class="ingredient-icon">🍇</span>
+                <h3>Extracto de Uva</h3>
+                <p>Cargado con Resveratrol puro. Protege el sistema cardiovascular, optimiza el flujo sanguíneo y actúa como un potente antiinflamatorio sistémico.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" style="background-color: #fafdfa;" id="testimonios">
+        <h2 class="section-title scroll-animate">Resultados que Inspiran</h2>
+        <div class="testimonials-grid">
+            <div class="video-card scroll-animate">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio de Rendimiento" allowfullscreen></iframe>
+                </div>
+                <div class="video-description">
+                    <h4>Carlos M. - Energía y Enfoque Activo</h4>
+                    <p>"El cambio de energía por las tardes fue inmediato. MultyDrink me da esa vitalidad limpia que mi trabajo corporativo exigía, sin alterar mi descanso por las noches."</p>
                 </div>
             </div>
-            <div class="relative flex justify-center items-center">
-                <div class="absolute w-96 h-96 bg-[#52B788]/20 rounded-full blur-3xl -z-10"></div>
-                <div class="bg-white border border-gray-100 p-2 rounded-3xl shadow-2xl overflow-hidden w-full max-w-lg">
-                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800" alt="MultyDrink Producto Premium" class="w-full h-80 object-cover rounded-2xl">
-                    <div class="p-6 text-center">
-                        <span class="text-xs bg-[#52B788]/20 text-[#1B4332] font-extrabold px-3 py-1 rounded-full uppercase">Fórmula de Alta Pureza</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mt-3">Energía y Sanidad Total</h3>
-                    </div>
+            <div class="video-card scroll-animate">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio Digestivo" allowfullscreen></iframe>
+                </div>
+                <div class="video-description">
+                    <h4>Elena R. - Alivio y Tránsito Digestivo</h4>
+                    <p>"Padecía de inflamación constante. La sinergia del mucílago de café y el ganoderma restablecieron mi salud digestiva por completo. Me siento ligera y renovada."</p>
+                </div>
+            </div>
+            <div class="video-card scroll-animate">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio de Negocio" allowfullscreen></iframe>
+                </div>
+                <div class="video-description">
+                    <h4>Andrés C. - Transformación y Finanzas</h4>
+                    <p>"Además de ser un producto excepcional para la salud, la oportunidad de distribución en Colombia es simple, transparente y altamente rentable desde el primer mes."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-12 bg-[#1B4332] text-white">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div class="flex items-center gap-4 justify-center md:justify-start">
-                <span class="text-4xl">🇨🇴</span>
+    <section class="pricing-section" id="packs">
+        <h2 class="section-title scroll-animate">Elige tu Plan de Consumo</h2>
+        <div class="pricing-grid">
+            <div class="price-card scroll-animate">
                 <div>
-                    <h4 class="text-xl font-bold">Iniciativa 100% Colombiana</h4>
-                    <p class="text-sm text-gray-300">Nuestra responsabilidad es hacer crecer el campo y llevar nuestra bandera a la cima de la industria mundial.</p>
+                    <h3>Kit Básico</h3>
+                    <p class="price-pack-visual">📦</p>
+                    <span class="price">$150.000 <span>/ COP</span></span>
+                    <p class="desc">Contiene 1 caja con 30 sobres de alta pureza. Ideal para comenzar a experimentar la nutrición celular y renovar tu energía.</p>
+                </div>
+                <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20kit%20b%C3%A1sico%20de%201%20caja." target="_blank" class="btn">Comprar 1 Caja</a>
+            </div>
+
+            <div class="price-card featured scroll-animate">
+                <span class="card-badge">Más Vendido</span>
+                <div>
+                    <h3>Kit Tratamiento</h3>
+                    <p class="price-pack-visual">📦📦📦</p>
+                    <span class="price">$360.000 <span>/ COP</span></span>
+                    <p class="desc"><strong>¡Incluye el 20% de descuento!</strong> Tratamiento ideal de 3 cajas para consolidar la regeneración interna. Viene con Envío Gratis a toda Colombia.</p>
+                </div>
+                <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20la%20oferta%20popular%20de%203%20cajas." target="_blank" class="btn btn-accent">Asegurar 3 Cajas (20% OFF)</a>
+            </div>
+
+            <div class="price-card scroll-animate">
+                <div>
+                    <h3>Kit Distribuidor</h3>
+                    <p class="price-pack-visual">🏬💎</p>
+                    <span class="price">$630.000 <span>/ COP</span></span>
+                    <p class="desc">Paquete mayorista de 6 cajas. Perfecto para consumo familiar extendido o para iniciar tu propio negocio de distribución pionera.</p>
+                </div>
+                <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20paquete%20mayorista%20de%206%20cajas." target="_blank" class="btn">Ordenar Kit Mayorista</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section" id="contacto">
+        <div class="form-split-grid">
+            <div class="form-info-side scroll-animate">
+                <h2>¿Listo para dar el siguiente paso?</h2>
+                <p>Completa tus datos para recibir una asesoría personalizada. Asegura tu descuento promocional y resuelve tus dudas comerciales de inmediato.</p>
+                <div class="large-image-wrapper" style="box-shadow: none; border-color: rgba(255,255,255,0.15)">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=600" alt="Emprendedores exitosos">
+                </div>
+            </div>
+            <div class="scroll-animate">
+                <div class="main-form-box">
+                    <h3>Formulario de Solicitud</h3>
+                    <form action="https://wa.me/573041222672" method="GET" target="_blank" onsubmit="return enviarAWhatsApp(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad de Destino</label>
+                            <input type="text" id="ciudad" name="ciudad" placeholder="Ej. Bogotá, Medellín..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kitSelect">Selecciona tu Pack</label>
+                            <select id="kitSelect" name="kit" required>
+                                <option value="Kit Basico (1 Caja)">Kit Básico - 1 Caja ($150.000)</option>
+                                <option value="Kit Tratamiento (3 Cajas)" selected>Kit Tratamiento - 3 Cajas ($360.000 - 20% OFF)</option>
+                                <option value="Kit Distribuidor (6 Cajas)">Kit Distribuidor - 6 Cajas ($630.000)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="margin-top: 10px;">Enviar Pedido por WhatsApp</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ingredientes" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-[#2D6A4F] uppercase tracking-widest text-sm font-bold block mb-2">Ciencia y Naturaleza</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Los 5 Pilares de MultyDrink</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Una sinergia única diseñada meticulosamente para potenciar tu salud física, metabólica y mental.</p>
+    <section class="section-container" id="preguntas">
+        <h2 class="section-title scroll-animate">Preguntas Frecuentes</h2>
+        <div class="faq-wrapper">
+            <div class="faq-item scroll-animate">
+                <button class="faq-question">¿Qué es el mucílago de café?</button>
+                <div class="faq-answer">
+                    <p>Es la capa protectora del grano de café, rica en antioxidantes y polifenoles. Aporta energía constante de absorción celular profunda sin alterar el sistema nervioso ni producir taquicardias.</p>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-4">☕</div>
-                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">1. Mucílago de Café</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Nuestro ingrediente estrella de exportación. Es una fuente masiva de polifenoles y antioxidantes que protegen las células contra el envejecimiento, acelera el metabolismo graso y genera vitalidad limpia sin alterar el sistema nervioso.</p>
-                    </div>
-                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">★ Orgullo Nacional</span>
+            <div class="faq-item scroll-animate">
+                <button class="faq-question">¿Cómo se consume el producto?</button>
+                <div class="faq-answer">
+                    <p>Se recomienda diluir un sobre en un vaso de agua fría o tibia por las mañanas para activar tu metabolismo y tu concentración desde las primeras horas del día.</p>
                 </div>
-
-                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-4">🍯</div>
-                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">2. Miel de Agave</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Un endulzante orgánico de bajo índice glucémico. Aporta carbohidratos de absorción lenta que mantienen estables los niveles de azúcar en la sangre, evitando los picos de fatiga y aportando energía constante.</p>
-                    </div>
-                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">🌱 100% Orgánico</span>
-                </div>
-
-                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-4">🍄</div>
-                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">3. Ganoderma Lucidum</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">El hongo de la inmortalidad. Actúa directamente en la modulación del sistema inmunológico, asiste en la oxigenación celular y promueve la resistencia física adaptógena frente al estrés diario.</p>
-                    </div>
-                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">🔬 Escudo Inmune</span>
-                </div>
-
-                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-4">🍃</div>
-                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">4. Té Negro</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Rico en teflavinas, mejora sustancialmente el enfoque de la concentración cognitiva y la salud cardiovascular, apoyando los procesos naturales de desintoxicación y digestión saludable.</p>
-                    </div>
-                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">⚡ Enfoque Mental</span>
-                </div>
-
-                <div class="bg-[#FAF8F0] p-8 rounded-3xl border border-gray-100 hover:border-[#52B788]/40 transition-all duration-300 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-4">🍇</div>
-                        <h3 class="text-xl font-bold text-[#1B4332] mb-3">5. Extracto de Uva</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">Cargado con resveratrol puro. Es un protector cardiovascular de alto impacto que optimiza la circulación sanguínea, combate la inflamación general y revitaliza los tejidos internos.</p>
-                    </div>
-                    <span class="text-xs font-bold text-[#2D6A4F] mt-4 block uppercase tracking-wider">❤️ Salud Vascular</span>
-                </div>
-
             </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-gradient-to-b from-white to-[#FAF8F0]">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-[#2D6A4F] uppercase tracking-widest text-sm font-bold block mb-2">Prueba Social Increíble</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900">Testimonios en Video</h2>
-                <p class="text-gray-600 mt-2">Observa los resultados reales narrados por nuestros consumidores y distribuidores.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col justify-between">
-                    <div class="relative aspect-video bg-black">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio 1" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-gray-900 mb-2">Carlos Mendoza - Aumento de Energía Natural</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            "Llevaba meses batallando con la fatiga crónica por las tardes. Empecé a consumir MultyDrink y el cambio en mi resistencia física e inmunológica fue drástico, sin taquicardias."
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col justify-between">
-                    <div class="relative aspect-video bg-black">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio 2" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-gray-900 mb-2">Elena Restrepo - Bienestar Digestivo</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            "Sufrió problemas de pesadez estomacal por años. El mucílago de café junto al ganoderma restauraron por completo mi tránsito intestinal. Recomiendo este producto al 100%."
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 flex flex-col justify-between">
-                    <div class="relative aspect-video bg-black">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio 3" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-gray-900 mb-2">Andrés Castro - Enfoque de Distribuidor</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            "No solo es un producto ganador para la salud, sino una oportunidad comercial brillante y duplicable que está saneando las finanzas de cientos de familias colombianas."
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="precios" class="py-20 bg-gradient-to-b from-[#FAF8F0] to-[#E8F5E9] border-t border-gray-200">
-        <div class="max-w-6xl mx-auto px-6">
-            
-            <div class="text-center mb-16">
-                <span class="text-red-600 uppercase tracking-widest text-sm font-black block mb-2">Descuento del 20% Aplicado de Inmediato</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-[#1B4332] mb-4">Adquiere tu Kit Comercial</h2>
-                <p class="text-gray-600 max-w-xl mx-auto">Elige la opción que mejor se adapte a tus metas actuales de salud o emprendimiento financiero.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                
-                <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-1">Kit Básico</h3>
-                                <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">1 Caja de MultyDrink</p>
-                            </div>
-                        </div>
-                        <div class="bg-[#FAF8F0] rounded-2xl py-8 text-center border border-dashed border-gray-200 mb-6 text-4xl">📦</div>
-                        <p class="text-gray-600 text-sm mb-6">Contiene 30 sobres de alta pureza. Perfecto para experimentar los primeros beneficios celulares de la fórmula.</p>
-                    </div>
-                    <div>
-                        <div class="mb-6">
-                            <span class="text-3xl font-extrabold text-gray-900">$150.000</span>
-                            <span class="text-sm text-gray-500 font-medium">/ COP</span>
-                        </div>
-                        <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20kit%20b%C3%A1sico%20de%201%20caja." 
-                           target="_blank" 
-                           class="w-full text-center block bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-bold py-3.5 px-6 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wide">
-                            Comprar 1 Caja
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bg-[#1B4332] text-white rounded-3xl p-8 shadow-2xl flex flex-col justify-between border-2 border-[#52B788] relative transform scale-105 z-10">
-                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-black uppercase tracking-widest py-1.5 px-6 rounded-bl-2xl">20% OFF INCLUIDO</div>
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <h3 class="text-2xl font-bold text-white mb-1">Kit Tratamiento</h3>
-                                <p class="text-xs text-[#52B788] uppercase tracking-wider font-bold">3 Cajas de MultyDrink</p>
-                            </div>
-                        </div>
-                        <div class="bg-white/10 rounded-2xl py-8 text-center border border-white/10 mb-6 text-4xl">📦 📦 📦</div>
-                        <p class="text-gray-200 text-sm mb-6"><strong>El más vendido.</strong> Tratamiento completo para consolidar la desintoxicación y regeneración celular. ¡Incluye Envío Gratis!</p>
-                    </div>
-                    <div>
-                        <div class="mb-6">
-                            <div class="text-xs text-red-400 line-through">Precio Regular: $450.000</div>
-                            <span class="text-4xl font-black text-white">$360.000</span>
-                            <span class="text-sm text-[#52B788] font-medium">/ COP</span>
-                        </div>
-                        <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20la%20oferta%20popular%20de%203%20cajas." 
-                           target="_blank" 
-                           class="w-full text-center block bg-[#52B788] hover:bg-[#74C69D] text-[#1B4332] font-black py-4 px-6 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wide shadow-md">
-                            Asegurar Oferta de 3 Cajas
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-1">Kit Distribuidor</h3>
-                                <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">6 Cajas de MultyDrink</p>
-                            </div>
-                            <span class="bg-[#E8F5E9] text-[#2D6A4F] text-xs px-2.5 py-1 rounded-full font-bold">Mayorista</span>
-                        </div>
-                        <div class="bg-[#FAF8F0] rounded-2xl py-8 text-center border border-dashed border-gray-200 mb-6 text-4xl">🏬💎</div>
-                        <p class="text-gray-600 text-sm mb-6">Perfecto para familias numerosas o emprendedores con visión de expansión comercial inmediata.</p>
-                    </div>
-                    <div>
-                        <div class="mb-6">
-                            <span class="text-3xl font-extrabold text-gray-900">$630.000</span>
-                            <span class="text-sm text-gray-500 font-medium">/ COP</span>
-                        </div>
-                        <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20paquete%20mayorista%20de%206%20cajas." 
-                           target="_blank" 
-                           class="w-full text-center block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 px-6 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wide">
-                            Ordenar Kit Mayorista
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-[#2D6A4F] uppercase tracking-widest text-sm font-bold block mb-2">Despeja tus dudas</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Preguntas Frecuentes</h2>
-            </div>
-
-            <div class="space-y-4">
-                <div class="border border-gray-200 rounded-2xl overflow-hidden bg-[#FAF8F0]">
-                    <button class="w-full text-left px-6 py-4 font-bold text-[#1B4332] flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
-                        <span>¿Qué es el mucílago de café y por qué es tan potente?</span>
-                        <span class="text-xl">+</span>
-                    </button>
-                    <div class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed">
-                        Es la capa gelatinosa que envuelve el grano de café. Históricamente descartada, hoy la ciencia demuestra que posee una concentración de antioxidantes y nutrientes celulares inigualable, aportando energía limpia sin causar taquicardia.
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-2xl overflow-hidden bg-[#FAF8F0]">
-                    <button class="w-full text-left px-6 py-4 font-bold text-[#1B4332] flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
-                        <span>¿Cómo se debe tomar MultyDrink?</span>
-                        <span class="text-xl">+</span>
-                    </button>
-                    <div class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed">
-                        Se recomienda disolver un sobre en un vaso de agua (fría o tibia) por las mañanas o antes de tus actividades físicas más exigentes para optimizar el rendimiento y la absorción de nutrientes del día.
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-2xl overflow-hidden bg-[#FAF8F0]">
-                    <button class="w-full text-left px-6 py-4 font-bold text-[#1B4332] flex justify-between items-center focus:outline-none" onclick="toggleFAQ(this)">
-                        <span>¿Tienen envíos a todo el territorio nacional?</span>
-                        <span class="text-xl">+</span>
-                    </button>
-                    <div class="hidden px-6 pb-4 text-sm text-gray-600 leading-relaxed">
-                        Sí, despachamos de inmediato directamente desde la fábrica oficial a cualquier ciudad o municipio de Colombia. En el Kit de Tratamiento de 3 cajas el envío es completamente gratis.
-                    </div>
+            <div class="faq-item scroll-animate">
+                <button class="faq-question">¿Los envíos son seguros a todo el país?</p>
+                <div class="faq-answer">
+                    <p>Totalmente. Despachamos tus pedidos directamente con las transportadoras líderes de Colombia. En el Kit de Tratamiento (3 cajas) el envío es 100% gratuito.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#1B4332] text-gray-400 py-12 border-t border-white/10 text-center text-sm">
-        <p class="mb-2">&copy; 2026 MultyDrink. Todos los derechos reservados.</p>
-        <p>Orgullo e innovación de la industria de redes y bienestar en Colombia 🇨🇴.</p>
+    <footer>
+        <p>&copy; 2026 MultyDrink. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px; opacity: 0.6; font-size: 0.8rem;">Innovación en bienestar celular y emprendimiento de origen colombiano 🇨🇴.</p>
     </footer>
 
     <script>
-        function toggleFAQ(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('span:last-child');
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.textContent = '-';
-            } else {
-                content.classList.add('hidden');
-                icon.textContent = '+';
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. MENÚ HAMBURGUESA DISPOSITIVOS MÓVILES
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('mobile-open');
+                });
+
+                // Cerrar menú al hacer clic en un enlace
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('mobile-open');
+                    });
+                });
             }
+
+            // 2. ANIMACIÓN POR SCROLL (Intersection Observer de tu index.html)
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.12 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animate-visible');
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => observer.observe(el));
+
+            // 3. ACORDEÓN INTERACTIVO DE PREGUNTAS FRECUENTES (FAQs)
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const answer = this.nextElementSibling;
+                    
+                    if (item.classList.contains('active')) {
+                        answer.style.maxHeight = null;
+                        item.classList.remove('active');
+                    } else {
+                        // Cerrar otros abiertos opcionalmente
+                        document.querySelectorAll('.faq-item').forEach(i => {
+                            i.classList.remove('active');
+                            i.querySelector('.faq-answer').style.maxHeight = null;
+                        });
+                        
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+
+        // 4. LÓGICA DE ENVÍO DINÁMICO DEL FORMULARIO A WHATSAPP
+        function enviarAWhatsApp(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const kit = document.getElementById('kitSelect').value;
+            
+            const mensaje = `Hola buen día, mi nombre es ${nombre}, escribo desde la ciudad de ${ciudad} y estoy interesado en adquirir el ${kit}.`;
+            const urlWhatsApp = `https://wa.me/573041222672?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(urlWhatsApp, '_blank');
+            return false;
         }
     </script>
-
 </body>
 </html>
