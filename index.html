@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MultyDrink | Vitalidad Natural y Propósito con Salud</title>
-    
+    <title>MultyDrink | Vitalidad Natural y Bienestar Celular</title>
+    <meta name="description" content="MultyDrink: bebida funcional con Mucílago de Café Colombiano, Ganoderma, Té Negro, Miel de Agave y Extracto de Uva. Energía limpia, digestión activa y vitalidad celular.">
+
+    <!-- Open Graph para WhatsApp / Redes Sociales -->
+    <meta property="og:title" content="MultyDrink — Energía Limpia de Origen Colombiano">
+    <meta property="og:description" content="Potenciado con Mucílago de Café 100% Colombiano. 5 superingredientes naturales para tu vitalidad celular.">
+    <meta property="og:image" content="images/producto-principal.webp">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* ═══════════════════════════════════════════════
+           VARIABLES DE MARCA — DESIGN TOKENS
+           ═══════════════════════════════════════════════ */
         :root {
-            --primary-color: #164a27;       
-            --primary-dark: #10351c;        
+            --primary-color: #164a27;
+            --primary-dark: #10351c;
             --primary-light: #eef5ee;
-            --accent-color: #ff9800;        
+            --accent-color: #ff9800;
             --accent-hover: #e68a00;
             --accent-gradient: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
             --text-color: #2c3e50;
             --text-muted: #5f758d;
-            --light-bg: #f4f8f4;            
+            --light-bg: #f4f8f4;
             --white: #ffffff;
             --whatsapp-color: #25d366;
             --whatsapp-dark: #128c7e;
             --whatsapp-gradient: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-bg: rgba(255, 255, 255, 0.92);
             --glass-border: rgba(22, 74, 39, 0.08);
             --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.03);
             --shadow-md: 0 10px 30px rgba(16, 53, 28, 0.06);
             --shadow-lg: 0 20px 40px rgba(16, 53, 28, 0.12);
+            --shadow-xl: 0 25px 50px rgba(16, 53, 28, 0.18);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 14px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 32px;
         }
 
-        /* Reset & General */
+        /* ═══════════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════════ */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -41,31 +58,39 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 85px; 
+            scroll-padding-top: 85px;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-color);
             background-color: var(--light-bg);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, .logo, .btn, .discount-badge {
+        h1, h2, h3, h4, .logo, .btn, .discount-badge, .card-badge, .mlm-stat-number {
             font-family: 'Outfit', sans-serif;
         }
 
-        /* Header y Menú de Navegación */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ═══════════════════════════════════════════════
+           HEADER & NAVEGACIÓN
+           ═══════════════════════════════════════════════ */
         header {
             background-color: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 15px 5%;
+            padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,7 +99,7 @@
         }
 
         .logo {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             color: var(--primary-color);
             text-decoration: none;
@@ -82,18 +107,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.02);
         }
 
         .logo::before {
             content: '';
             display: inline-block;
-            width: 12px;
-            height: 24px;
+            width: 10px;
+            height: 22px;
             background: var(--accent-gradient);
             border-radius: 3px;
             transform: skewX(-15deg);
@@ -105,15 +125,14 @@
         }
 
         nav a {
-            margin-left: 25px;
+            margin-left: 20px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition);
-            white-space: nowrap;
             position: relative;
-            padding: 5px 0;
+            padding: 5px 10px;
         }
 
         nav a::after {
@@ -135,23 +154,37 @@
             width: 100%;
         }
 
+        /* Botón Destacado del 20% en Menú */
+        nav a.nav-highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+            border: 2px solid var(--accent-color);
+            border-radius: 20px;
+            background-color: rgba(255, 152, 0, 0.06);
+            padding: 6px 14px;
+        }
+
+        nav a.nav-highlight:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+        
+        nav a.nav-highlight::after { display: none; }
+
         nav a.nav-btn {
             background: var(--accent-gradient);
             color: var(--white) !important;
-            padding: 8px 22px;
+            padding: 10px 22px;
             border-radius: 25px;
             box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
             margin-left: 25px;
-            transition: var(--transition);
         }
+
+        nav a.nav-btn::after { display: none; }
 
         nav a.nav-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(255, 152, 0, 0.45);
-        }
-
-        nav a.nav-btn::after {
-            display: none;
+            box-shadow: 0 6px 16px rgba(255, 152, 0, 0.35);
         }
 
         .menu-toggle {
@@ -159,271 +192,313 @@
             background: var(--primary-color);
             color: var(--white);
             border: none;
-            padding: 10px 18px;
-            font-size: 0.95rem;
+            padding: 10px 14px;
+            font-size: 1.1rem;
             font-weight: 700;
-            border-radius: 20px;
+            border-radius: 12px;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 10px rgba(22, 74, 39, 0.2);
-            z-index: 10001;
         }
 
-        .menu-toggle:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
+        /* Flag Image Fix Utility */
+        .flag-icon {
+            width: 22px;
+            height: auto;
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 4px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
         }
 
-        /* Overlay para Menú Móvil */
-        .menu-backdrop {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.15);
-            z-index: 999;
+        /* ═══════════════════════════════════════════════
+           ANIMACIONES AL HACER SCROLL
+           ═══════════════════════════════════════════════ */
+        .scroll-animate {
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
         }
 
-        .menu-backdrop.active {
-            display: block;
+        .animate-visible {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Hero Banner */
+        .scroll-animate.delay-1 { transition-delay: 0.1s; }
+        .scroll-animate.delay-2 { transition-delay: 0.2s; }
+        .scroll-animate.delay-3 { transition-delay: 0.3s; }
+        .scroll-animate.delay-4 { transition-delay: 0.4s; }
+
+        /* ═══════════════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════════════ */
         .hero {
-            position: relative;
-            background-image: url('images/hero-bg.webp');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            background-color: var(--primary-dark); 
-            color: var(--white);
-            padding: 140px 20px;
-            text-align: center;
-            min-height: 550px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 60px 5% 100px 5%;
+            background: radial-gradient(circle at 80% 20%, #e8f0e9 0%, var(--light-bg) 50%);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
             align-items: center;
-            z-index: 1;
+            min-height: calc(100vh - 80px);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(16, 53, 28, 0.8) 0%, rgba(10, 32, 17, 0.85) 100%);
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            color: var(--white);
-            margin-bottom: 25px;
-            max-width: 900px;
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            line-height: 1.12;
             font-weight: 800;
-            line-height: 1.15;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.25);
-            letter-spacing: -1px;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto 45px auto;
-            color: #e2ede5;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            font-weight: 400;
+        .hero-text h1 .text-accent {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* Botones */
-        .btn {
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 580px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            max-width: 480px;
+        }
+
+        .hero-cta-group .btn {
+            width: auto;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .discount-badge {
+            background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 800;
+            padding: 8px 18px;
+            border-radius: 10px;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            background: var(--accent-gradient);
-            color: var(--white);
-            padding: 16px 40px;
-            text-decoration: none;
-            font-weight: 700;
+            gap: 8px;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+        }
+
+        .discount-badge .countdown {
+            font-variant-numeric: tabular-nums;
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        .origin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 8px 16px;
             border-radius: 30px;
-            font-size: 1.1rem;
-            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.35);
+            margin-bottom: 18px;
+            border: 1px solid rgba(22, 74, 39, 0.12);
+        }
+
+        .large-image-wrapper {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--white);
+            position: relative;
+        }
+
+        .large-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
             transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            gap: 10px;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5);
-            background: linear-gradient(135deg, #ff9800 0%, #ff8f00 100%);
+        .large-image-wrapper:hover img {
+            transform: scale(1.03);
         }
 
-        .btn:active {
-            transform: translateY(-1px);
+        /* ═══════════════════════════════════════════════
+           SECCIÓN BENEFICIOS
+           ═══════════════════════════════════════════════ */
+        .benefits-section {
+            background: var(--white);
+            padding: 80px 5%;
         }
 
-        .btn-whatsapp {
-            background: var(--whatsapp-gradient);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
-        }
-
-        .btn-whatsapp:hover {
-            background: linear-gradient(135deg, #25d366 0%, #15b853 100%);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .section {
-            padding: 100px 5%;
-            max-width: 1200px;
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .bg-dark-green {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #0d2716 100%);
-            color: var(--white);
+        .benefit-item {
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            border: 1px solid transparent;
         }
 
-        .bg-white-pure {
-            background-color: var(--white);
+        .benefit-item:hover {
+            background: var(--primary-light);
+            border-color: rgba(22, 74, 39, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ═══════════════════════════════════════════════
+           SECCIÓN CONTENEDOR GENERAL
+           ═══════════════════════════════════════════════ */
+        .section-container {
+            padding: 100px 5%;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 60px;
-            letter-spacing: -0.5px;
-        }
-
-        .bg-dark-green .section-title { color: var(--white); }
-        .bg-white-pure .section-title { color: var(--primary-dark); }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 5px;
-            background: var(--accent-gradient);
-            margin: 15px auto 0 auto;
-            border-radius: 3px;
-        }
-
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .grid-image-container {
-            width: 100%;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-
-        .grid-image-container::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            pointer-events: none;
-        }
-
-        .grid-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .grid-image-container:hover img {
-            transform: scale(1.03);
-        }
-
-        /* Grid de Ingredientes */
-        .grid-ingredients {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            text-align: center;
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; 
-            border: 1px solid rgba(22, 74, 39, 0.05);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card img {
-            width: 100%;
-            height: 240px; 
-            object-fit: cover; 
-            display: block;
-            margin: 0;
-        }
-
-        .card-body {
-            padding: 35px 30px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: var(--primary-dark);
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             font-weight: 700;
         }
 
-        .card p {
-            font-size: 1.05rem;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin: 0;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* ═══════════════════════════════════════════════
+           SECCIÓN INGREDIENTES
+           ═══════════════════════════════════════════════ */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .ingredient-card {
+            background-color: var(--white);
+            padding: 35px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(22, 74, 39, 0.03);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(22, 74, 39, 0.1);
+        }
+
+        .ingredient-img-wrap {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 22px;
+            border: 4px solid var(--primary-light);
+            box-shadow: 0 6px 16px rgba(22, 74, 39, 0.12);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .ingredient-card:hover .ingredient-img-wrap {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+
+        .ingredient-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ingredient-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .ingredient-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
-        /* Videos Testimonios: Configuración 2x2 en PC */
+        /* ═══════════════════════════════════════════════
+           SECCIÓN TESTIMONIOS (CUADRÍCULA ORDENADA 2X2 EN PC)
+           ═══════════════════════════════════════════════ */
         .testimonials-section {
-            background-color: var(--primary-light);
-            padding: 100px 5%;
+            background-color: #fafdfa;
         }
 
-        .video-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* Forzado estricto 2x2 en PC */
             gap: 40px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .video-card {
-            background: var(--white);
-            border-radius: 24px;
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            text-align: center;
-            padding-bottom: 25px;
-            border: 1px solid rgba(22, 74, 39, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.02);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .video-card:hover {
@@ -432,575 +507,680 @@
         }
 
         .video-container {
-            width: 100%;
-            aspect-ratio: 9/16; 
-            max-height: 520px; 
-            background-color: #000;
             position: relative;
+            width: 100%;
+            padding-top: 140%; /* Proporción ideal optimizada */
+            background-color: #000;
         }
 
-        .video-container video {
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; 
+            border: none;
+            object-fit: cover;
         }
 
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin: 20px 20px 8px 20px;
-            font-size: 1.25rem;
-        }
-
-        /* Responsabilidad Social / Propósito */
-        .purpose-section {
-            background-color: #ebf2eb;
-            text-align: center;
-            padding: 100px 5%;
-            border-top: 1px solid rgba(22, 74, 39, 0.08);
-            border-bottom: 1px solid rgba(22, 74, 39, 0.08);
-        }
-
-        .purpose-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Sección de Socios Banner */
-        .partner-section {
-            position: relative;
-            background-image: url('images/hero-bg.webp');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            color: var(--white);
-            text-align: center;
-            padding: 110px 5%;
-            z-index: 1;
-        }
-
-        .partner-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 53, 28, 0.94) 0%, rgba(10, 32, 17, 0.96) 100%);
-            z-index: -1;
-        }
-
-        .partner-container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .discount-badge {
-            display: inline-block;
-            background: var(--accent-gradient);
-            color: var(--white);
-            font-size: 1.8rem;
-            font-weight: 800;
-            padding: 14px 40px;
-            border-radius: 50px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.35);
-            letter-spacing: -0.5px;
-        }
-
-        /* Formulario Nativo Premium Estilizado */
-        .native-form-box {
-            background-color: var(--light-bg);
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid rgba(22, 74, 39, 0.08);
-            box-shadow: var(--shadow-md);
+        .video-description {
+            padding: 22px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-
-        .native-form-group {
-            margin-bottom: 16px;
-            text-align: left;
-        }
-
-        .native-input {
-            width: 100%;
-            padding: 14px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(22, 74, 39, 0.15);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            background-color: var(--white);
-            color: var(--text-color);
-            transition: var(--transition);
-        }
-
-        .native-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(22, 74, 39, 0.1);
-        }
-
-        .form-features-list {
-            list-style: none;
-            padding: 0;
-            margin: 25px 0 0 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            font-weight: 600;
-            text-align: left;
-        }
-
-        .form-features-list li {
-            position: relative;
-            padding-left: 22px;
-        }
-
-        .form-features-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: 900;
-        }
-
-        /* PLAN DE NEGOCIOS Y BONOS PARA NETWORKERS */
-        .business-section {
-            background-color: var(--white);
-            padding: 110px 5%;
-        }
-
-        .business-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .business-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-        }
-
-        .business-intro p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .bonus-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .bonus-card {
-            background: var(--light-bg);
-            border-radius: 28px;
-            padding: 50px 45px;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .bonus-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
             background: var(--white);
-            box-shadow: var(--shadow-lg);
+            border-top: 1px solid rgba(22, 74, 39, 0.04);
         }
 
-        .bonus-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-
-        .bonus-icon-badge {
-            background: var(--primary-light);
-            color: var(--primary-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            font-family: 'Outfit', sans-serif;
-            border: 1px solid rgba(22, 74, 39, 0.1);
-        }
-
-        .bonus-card:hover .bonus-icon-badge {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .bonus-title {
-            font-size: 2.2rem;
+        .video-description h4 {
             color: var(--primary-dark);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-top: 15px;
-        }
-
-        .bonus-body {
             font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .video-description p {
             color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            font-style: italic;
         }
 
-        .bonus-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-
-        .bonus-features li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        .bonus-features li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .business-cta-box {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #0b1f11 100%);
-            border-radius: 30px;
-            padding: 60px 40px;
-            text-align: center;
-            color: var(--white);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .business-cta-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -30%;
-            width: 80%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0) 70%);
-            z-index: -1;
-            transform: rotate(-15deg);
-        }
-
-        .business-cta-box h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .business-cta-box p {
-            font-size: 1.2rem;
-            color: #d1dfd5;
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-            line-height: 1.6;
-        }
-
-        .business-cta-box .duplication-hint {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-top: 15px;
-            font-weight: 600;
-        }
-
-        /* Precios y Packs */
+        /* ═══════════════════════════════════════════════
+           SECCIÓN PACKS DE CONSUMO — PREMIUM
+           ═══════════════════════════════════════════════ */
         .pricing-section {
+            background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
             padding: 100px 5%;
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1140px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
             margin: 0 auto;
-            align-items: stretch; 
+            align-items: stretch;
         }
 
         .price-card {
-            background: var(--white);
-            border-radius: 28px;
-            padding: 0 0 40px 0; 
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 0;
             text-align: center;
             box-shadow: var(--shadow-md);
-            border: 2px solid rgba(22, 74, 39, 0.04);
+            border: 2px solid rgba(22, 74, 39, 0.05);
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden; 
+            overflow: hidden;
             transition: var(--transition);
         }
 
         .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
 
         .price-card.featured {
-            border-color: var(--primary-color);
-            transform: scale(1.03);
-            box-shadow: var(--shadow-lg);
+            border: 3px solid var(--accent-color);
+            transform: scale(1.04);
+            box-shadow: var(--shadow-xl), 0 0 0 4px rgba(255, 152, 0, 0.1);
+            z-index: 2;
         }
 
         .price-card.featured:hover {
-            transform: scale(1.04) translateY(-5px);
+            transform: scale(1.04) translateY(-6px);
+        }
+
+        .featured-ribbon {
+            background: var(--accent-gradient);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            padding: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            position: relative;
+        }
+
+        .featured-ribbon::before { content: '⭐ '; }
+        .featured-ribbon::after { content: ' ⭐'; }
+
+        .card-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--primary-color);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+        }
+
+        .card-badge.badge-savings {
+            background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
         }
 
         .pack-image-container {
-            width: 100%;
-            height: 230px; 
-            margin: 0;
+            padding: 25px 25px 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            background-color: #fcfdfc;
-            border-bottom: 1px solid rgba(22, 74, 39, 0.04);
-            overflow: hidden;
         }
 
         .pack-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
+            max-height: 180px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
             transition: var(--transition);
         }
 
         .price-card:hover .pack-image-container img {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
 
-        .price-card-body {
-            padding: 35px 30px 0 30px;
+        .pack-content {
+            padding: 25px 30px 10px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
-        .badge {
-            position: absolute;
-            top: 20px; 
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-gradient);
-            color: var(--white);
-            padding: 8px 24px;
-            border-radius: 30px;
+        .pack-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .pack-routine {
             font-size: 0.85rem;
-            font-weight: 800;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(255,152,0,0.3);
-            letter-spacing: 0.5px;
-        }
-
-        .price-card-body h3 {
-            font-size: 1.6rem;
-            color: var(--primary-dark);
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-
-        .price {
-            font-size: 2.4rem;
-            color: var(--primary-dark);
-            font-weight: 800;
-            margin: 15px 0 5px 0;
-            letter-spacing: -1px;
-        }
-
-        .features-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0 35px 0;
-            text-align: left;
-        }
-
-        .features-list li {
-            margin-bottom: 12px;
-            padding-left: 28px;
-            position: relative;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #4a5a6a;
-        }
-
-        .features-list li::before {
-            content: "✓";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: 900;
-            font-size: 1.1rem;
-        }
-
-        .features-list li.gift-item {
-            color: #d87d00;
+            color: var(--accent-color);
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
         }
 
-        .features-list li.gift-item::before { 
-            content: "🎁 "; 
+        .pack-content .price {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 4px;
+            line-height: 1.1;
         }
 
-        /* Estilos Acordeón Preguntas Frecuentes */
-        .faq-section {
-            background-color: var(--white);
+        .pack-content .price-currency {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .pack-content .price-per-unit {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .pack-content .desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .pack-benefits-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .pack-benefits-list li {
+            padding: 6px 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .pack-benefits-list li::before {
+            content: '✓';
+            font-weight: 800;
+            color: var(--primary-color);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pack-shipping {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pack-gift {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .pack-cta {
+            padding: 0 30px 30px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           SECCIÓN OPORTUNIDAD MLM
+           ═══════════════════════════════════════════════ */
+        .mlm-section {
+            background: linear-gradient(135deg, #0d2818 0%, #164a27 60%, #1e5a32 100%);
+            padding: 100px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mlm-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,152,0,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .mlm-section .section-title { color: var(--white); }
+        .mlm-section .section-subtitle { color: rgba(255, 255, 255, 0.75); }
+
+        .mlm-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+        }
+
+        .mlm-stat {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 40px 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .mlm-stat:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+            border-color: rgba(255, 152, 0, 0.3);
+        }
+
+        .mlm-stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .mlm-stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .mlm-stat-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+
+        .mlm-footer-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            line-height: 1.7;
+        }
+
+        .mlm-cta-wrap { text-align: center; }
+        .mlm-cta-wrap .btn { width: auto; display: inline-block; padding: 16px 40px; }
+
+        /* ═══════════════════════════════════════════════
+           FORMULARIO SIMPLIFICADO Y ALINEADO PERFECTAMENTE
+           ═══════════════════════════════════════════════ */
+        .form-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e5a32 100%);
+            color: var(--white);
             padding: 100px 5%;
         }
 
-        .faq-container {
+        .form-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center; /* Alineación vertical perfecta garantizada */
+        }
+
+        .form-info-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .form-info-content {
+            margin-bottom: 30px;
+        }
+
+        .form-info-side h2 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .form-info-side p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .form-trust-points {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .form-trust-points li {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-trust-points li::before {
+            content: '✓';
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .main-form-box {
+            background-color: var(--white);
+            padding: 45px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            color: var(--text-color);
+        }
+
+        .main-form-box h3 {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .main-form-box .form-sub {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-sm);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f9fbf9;
+            min-height: 50px;
+            color: var(--text-color);
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(22, 74, 39, 0.08);
+        }
+
+        /* ═══════════════════════════════════════════════
+           BOTONES
+           ═══════════════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            width: 100%;
+            text-align: center;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 16px 30px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--accent-gradient);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-accent::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .btn-accent:hover {
+            background: linear-gradient(135deg, #e68a00 0%, #e65100 100%);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp-gradient);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(135deg, #20c15e 0%, #0f7b6d 100%);
+        }
+
+        /* ═══════════════════════════════════════════════
+           PREGUNTAS FRECUENTES — ACORDEÓN & DESTACADOS
+           ═══════════════════════════════════════════════ */
+        .faq-wrapper {
             max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
-            background-color: var(--light-bg);
-            border-radius: 16px;
-            margin-bottom: 20px;
-            overflow: hidden;
+            background-color: var(--white);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
             box-shadow: var(--shadow-sm);
+            overflow: hidden;
             border: 1px solid rgba(22, 74, 39, 0.04);
             transition: var(--transition);
         }
 
-        .faq-item:hover {
+        /* Estilo premium para resaltar la pregunta de negocio */
+        .faq-item.faq-highlighted {
+            border: 2px solid var(--accent-color);
+            background-color: rgba(255, 152, 0, 0.02);
             box-shadow: var(--shadow-md);
-            border-color: rgba(22, 74, 39, 0.1);
+        }
+
+        .faq-item.faq-highlighted .faq-question {
+            color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .faq-question {
             width: 100%;
+            text-align: left;
+            padding: 22px 30px;
             background: none;
             border: none;
-            text-align: left;
-            padding: 24px 30px;
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.05rem;
+            font-weight: 600;
             color: var(--primary-dark);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            outline: none;
+            font-family: 'Inter', sans-serif;
             transition: var(--transition);
+            min-height: 54px;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
         }
 
         .faq-question::after {
             content: '+';
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--primary-color);
-            font-weight: 700;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin-left: 15px;
         }
 
         .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-            color: var(--accent-color);
+            content: '−';
+            transform: rotate(180deg);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: var(--white);
+            transition: max-height 0.35s ease-out;
+            background-color: #fafdfa;
         }
 
         .faq-answer p {
-            padding: 24px 30px;
-            margin: 0;
-            color: #4a5568;
-            font-size: 1.05rem;
+            padding: 0 30px 22px 30px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
             line-height: 1.7;
-            border-top: 1px solid rgba(22, 74, 39, 0.05);
         }
 
-        /* Footer */
+        .faq-answer a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ═══════════════════════════════════════════════
+           FOOTER EXCLUSIVO CON DISCLAIMER REAL
+           ═══════════════════════════════════════════════ */
         footer {
             background-color: #0b1a0f;
             color: #a2b4a7;
-            padding: 70px 20px;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 50px 5% 35px;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        footer .credits {
-            font-size: 0.85rem;
-            color: #617767;
-        }
-
-        /* WhatsApp flotante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 35px;
-            right: 35px;
-            background: var(--whatsapp-gradient);
+        .footer-brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--white);
-            border-radius: 50px;
-            padding: 16px 30px;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 8px 30px rgba(18, 140, 126, 0.35);
-            z-index: 1000;
+            margin-bottom: 12px;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: #a2b4a7;
+            text-decoration: none;
+            font-size: 0.88rem;
             transition: var(--transition);
         }
 
+        .footer-links a:hover { color: var(--white); }
+
+        .footer-disclaimer {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 20px;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 62px;
+            height: 62px;
+            background: var(--whatsapp-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 9999;
+            transition: var(--transition);
+            animation: whatsapp-pulse 2.5s infinite;
+        }
+
         .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(18, 140, 126, 0.5);
-            background: linear-gradient(135deg, #25d366 0%, #15b853 100%);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
         }
 
-        /* Animaciones */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-animate.animate-visible {
-            opacity: 1;
-            transform: none; 
-        }
-
-        /* ==================================================================
-           ESTILOS EXCLUSIVOS PARA EL POP-UP (MODAL EXIT-INTENT)
-           ================================================================== */
+        /* ═══════════════════════════════════════════════
+           ESTILOS EXCLUSIVOS: MODAL POP-UP EXIT INTENT
+           ═══════════════════════════════════════════════ */
         .custom-popup-overlay {
             display: none; 
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(11, 26, 15, 0.6); 
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -1037,8 +1217,8 @@
 
         .custom-popup-close {
             position: absolute;
-            top: 20px;
-            right: 25px;
+            top: 15px;
+            right: 20px;
             background: none;
             border: none;
             font-size: 2rem;
@@ -1068,706 +1248,536 @@
         .custom-popup-header p {
             font-size: 1rem;
             color: var(--text-muted);
-            line-height: 1.5;
         }
 
-        /* Responsivo / Mobile-First */
+        /* Keyframes */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+        @keyframes whatsapp-pulse {
+            0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0.15); }
+            100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+        }
+
+        /* Responsive Breakpoints */
         @media (max-width: 992px) {
-            .bonus-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .grid-layout {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 6%;
-                position: sticky;
-            }
-
-            .logo {
-                font-size: 23px;
-            }
-
-            .menu-toggle {
-                display: block; 
-            }
-
+            header { padding: 0 20px; }
+            .menu-toggle { display: block; }
             nav {
-                display: flex; 
-                flex-direction: column;
                 position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                top: 80px; left: 0; width: 100%;
                 background-color: var(--white);
-                box-shadow: 0 15px 30px rgba(16, 53, 28, 0.1);
-                padding: 20px 0;
-                gap: 10px;
-                z-index: 9999;
+                box-shadow: 0 15px 30px rgba(16, 53, 28, 0.08);
+                padding: 30px;
+                flex-direction: column;
+                gap: 15px;
                 opacity: 0;
                 visibility: hidden;
-                transform: translateY(-15px);
+                transform: translateY(-20px);
                 transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-                border-bottom: 2px solid var(--primary-color);
+                z-index: 999;
             }
+            nav.mobile-open { opacity: 1; visibility: visible; transform: translateY(0); }
+            nav a { margin-left: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 12px 0; }
+            nav a.nav-highlight { width: auto; display: inline-block; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 40px; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .testimonials-grid { grid-template-columns: 1fr; } /* Adaptación a 1 columna en móvil */
+            .pricing-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+            .form-split-grid { grid-template-columns: 1fr; gap: 40px; }
+            .form-info-side { text-align: center; }
+            .form-info-side h2 { font-size: 2rem; }
+            .main-form-box { padding: 30px 22px; }
+        }
 
-            nav.mobile-open {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            nav a {
-                margin-left: 0;
-                font-size: 1.15rem;
-                padding: 12px 0;
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid #f2f5f2;
-                box-sizing: border-box;
-            }
-
-            nav a::after {
-                display: none; 
-            }
-
-            nav a:last-child {
-                border-bottom: none;
-            }
-
-            nav a.nav-btn {
-                margin: 15px auto;
-                width: 80%;
-                max-width: 280px;
-                border-bottom: none;
-                padding: 12px 0;
-            }
-
-            .hero h1 { font-size: 2.4rem; }
-            .hero p { font-size: 1.2rem; }
-            .section-title { font-size: 2.2rem; margin-bottom: 40px; }
-
-            .price-card.featured { 
-                transform: none; 
-                margin: 0; 
-            }
-            .price-card.featured:hover {
-                transform: translateY(-5px);
-            }
-            .pricing-grid {
-                gap: 30px;
-            }
-
-            .faq-question { font-size: 1.15rem; padding: 20px 24px; }
-            .card img, .pack-image-container { height: 200px; } 
-
-            .bonus-card {
-                padding: 40px 30px;
-            }
-
-            .bonus-title {
-                font-size: 1.8rem;
-            }
-
-            .business-cta-box h3 {
-                font-size: 1.8rem;
-            }
-
-            .whatsapp-float {
-                bottom: 25px;
-                right: 25px;
-                padding: 14px 25px;
-                font-size: 0.95rem;
-            }
-
-            .custom-popup-box {
-                padding: 30px 20px;
-            }
-
-            .form-features-list {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .native-form-box {
-                padding: 30px 20px;
-            }
+        @media (max-width: 480px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+            .ingredients-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <script>
-        const NUMERO_WHATSAPP = '573041222672';
-    </script>
-
-    <div class="menu-backdrop" id="menuBackdrop"></div>
-
+    <!-- ═══════════════════════════════════════════════
+         HEADER
+         ═══════════════════════════════════════════════ -->
     <header>
         <a href="#" class="logo">MultyDrink</a>
-        <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú de navegación">☰ Menú</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">☰ Menú</button>
         <nav id="navMenu">
-            <a href="#producto">El Producto</a>
-            <a href="#ingredientes">5 Ingredientes</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#ingredientes">Ingredientes</a>
             <a href="#testimonios">Testimonios</a>
-            <a href="#contacto">Asesoría</a>
-            <a href="#comprar" class="nav-btn">Compra Ahora</a>
-            <a href="#distribuidor">Recibe 20% de Descuento</a>
-            <a href="#faq">Preguntas</a>
+            <a href="#packs">Planes</a>
+            <a href="#oportunidad" class="nav-highlight">Tu 20% de Beneficio</a>
+            <a href="#contacto" class="nav-btn">Quiero Empezar ✨</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1 class="scroll-animate">Potencia tu Energía Natural</h1>
-        <p class="scroll-animate">Descubre MultyDrink: 5 ingredientes botánicos en un práctico sachet para transformar tu bienestar diario.</p>
+    <!-- ═══════════════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════════════ -->
+    <section class="hero" id="inicio">
+        <div class="hero-text">
+            <span class="discount-badge">🔥 OFERTA HOY · Obsequio Especial Incluido · <span class="countdown" id="heroCountdown">00:00:00</span></span>
+            <div class="origin-badge scroll-animate">
+                <img src="https://flagcdn.com/w40/co.png" alt="Colombia" class="flag-icon"> Fórmula Premium 100% Colombiana
+            </div>
+            <h1 class="scroll-animate">Despierta la <span class="text-accent">Energía Limpia</span> que Tu Cuerpo Necesita</h1>
+            <p class="scroll-animate">Potenciado con Mucílago de Café 100% Colombiano — energía sostenida sin picos de ansiedad, con la pureza de 5 superingredientes naturales para tu vitalidad celular.</p>
+            <div class="hero-cta-group scroll-animate">
+                <a href="#packs" class="btn btn-accent">Ver Planes de Vitalidad</a>
+                <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20MultyDrink." target="_blank" class="btn btn-whatsapp">Hablar con Asesor 💬</a>
+            </div>
+        </div>
         <div class="scroll-animate">
-            <a href="#comprar" class="btn">VER OPCIONES DE COMPRA</a>
-        </div>
-    </section>
-
-    <section id="producto" class="section bg-white-pure" style="max-width: 100%; width: 100%; padding-left: 0; padding-right: 0;">
-        <div class="grid-layout section" style="padding-top: 0; padding-bottom: 0;">
-            <div class="scroll-animate">
-                <h2 style="color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 25px; font-weight: 800;">Bienestar Simplificado</h2>
-                <p style="font-size: 1.25rem; color: #1c2833; font-weight: 600; line-height: 1.7; margin-bottom: 20px;">MultyDrink es tu bienestar simplificado en un solo sobre. Es una poderosa bebida antioxidante diseñada para combatir la fatiga moderna y activar tu máximo rendimiento diario de forma natural y portátil.</p>
-                <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.7;">Nuestro gran diferencial es que <strong>destruimos la complejidad</strong>: en lugar de tomar 10 suplementos diferentes, concentramos todo lo que tu cuerpo necesita en una sola fórmula inteligente como SuperAlimento. Bienestar absoluto, práctico y sin rodeos.</p>
-                <a href="https://wa.me/573041222672?text=Hola%2C%20me%20interesa%20adquirir%20el%20kit%20MultyDrink." target="_blank" class="btn btn-whatsapp">
-                    Consultar por WhatsApp
-                </a>
-            </div>
-            <div class="grid-image-container scroll-animate">
-                <img src="images/producto-principal.webp" alt="MultyDrink Producto Principal">
+            <div class="large-image-wrapper">
+                <img src="images/producto-principal.webp" alt="MultyDrink - Bebida funcional premium con Mucílago de Café Colombiano" loading="eager">
             </div>
         </div>
     </section>
 
-    <section id="ingredientes" class="bg-dark-green" style="padding: 100px 0;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
-            <h2 class="section-title scroll-animate">5 Ingredientes Poderosos</h2>
-            <div class="grid-ingredients">
-                
-                <div class="card scroll-animate">
-                    <img src="images/mucilago-cafe.webp" alt="Mucílago de Café">
-                    <div class="card-body">
-                        <h3>Mucílago de Café</h3>
-                        <p>Fibra soluble con ácido clorogénico que regula el metabolismo y promueve la salud celular.</p>
-                    </div>
-                </div>
-
-                <div class="card scroll-animate">
-                    <img src="images/ganoderma.jpg" alt="Ganoderma Lucidum">
-                    <div class="card-body">
-                        <h3>Ganoderma Lucidum</h3>
-                        <p>Hongo ancestral que equilibra, protege y fortalece óptimamente el sistema inmunológico.</p>
-                    </div>
-                </div>
-
-                <div class="card scroll-animate">
-                    <img src="images/te-negro.jpg" alt="Té Negro">
-                    <div class="card-body">
-                        <h3>Té Negro</h3>
-                        <p>Sus teaflavinas optimizan las conexiones neuronales y aportan claridad mental.</p>
-                    </div>
-                </div>
-
-                <div class="card scroll-animate">
-                    <img src="images/miel-agave.webp" alt="Miel de Agave">
-                    <div class="card-body">
-                        <h3>Miel de Agave</h3>
-                        <p>Contiene inulina prebiótica que regenera la mucosa intestinal y mejora la digestión.</p>
-                    </div>
-                </div>
-
-                <div class="card scroll-animate">
-                    <img src="images/extracto-uva.webp" alt="Extracto de Uva">
-                    <div class="card-body">
-                        <h3>Extracto de Uva</h3>
-                        <p>Aporta potentes polifenoles que combaten los radicales libres y protegen las células.</p>
-                    </div>
-                </div>
-
+    <!-- ═══════════════════════════════════════════════
+         BENEFICIOS DIFERENCIADORES
+         ═══════════════════════════════════════════════ -->
+    <section class="benefits-section" id="beneficios">
+        <div class="benefits-grid">
+            <div class="benefit-item scroll-animate delay-1">
+                <span class="benefit-icon">⚡</span>
+                <h3>Energía Limpia</h3>
+                <p>Sin cafeína sintética. Tu cuerpo funciona con combustible 100% natural.</p>
+            </div>
+            <div class="benefit-item scroll-animate delay-2">
+                <span class="benefit-icon">🛡️</span>
+                <h3>Inmunidad Activa</h3>
+                <p>Ganoderma + Antioxidantes fortalecen tu sistema de defensa cada día.</p>
+            </div>
+            <div class="benefit-item scroll-animate delay-3">
+                <span class="benefit-icon">🫁</span>
+                <h3>Digestión Renovada</h3>
+                <p>Mucílago de café y miel de agave cuidan tu tránsito intestinal.</p>
+            </div>
+            <div class="benefit-item scroll-animate delay-4">
+                <span class="benefit-icon">
+                    <img src="https://flagcdn.com/w40/co.png" alt="Colombia" style="width: 45px; height: auto;">
+                </span>
+                <h3>Orgullo Colombiano</h3>
+                <p>Ingredientes de origen premium nacional. Un orgullo que se bebe.</p>
             </div>
         </div>
     </section>
 
-    <section id="testimonios" class="testimonials-section">
-        <h2 class="section-title scroll-animate" style="color: var(--primary-dark);">Testimonios que Inspiran</h2>
-        <div class="video-grid">
+    <!-- ═══════════════════════════════════════════════
+         INGREDIENTES
+         ═══════════════════════════════════════════════ -->
+    <section class="section-container" id="ingredientes">
+        <h2 class="section-title scroll-animate">Los 5 Pilares de la Fórmula</h2>
+        <p class="section-subtitle scroll-animate">Cada ingrediente fue seleccionado por su potencia científica y su origen natural de máxima pureza.</p>
+        <div class="ingredients-grid">
+            <div class="ingredient-card scroll-animate">
+                <div class="ingredient-img-wrap">
+                    <img src="images/mucilago-cafe.webp" alt="Mucílago de Café Colombiano" loading="lazy">
+                </div>
+                <h3>Mucílago de Café Colombiano — Nuestra Insignia</h3>
+                <p>Una fuente extraordinaria de polifenoles antioxidantes que protegen y rejuvenecen tus células, promoviendo energía limpia sin picos de ansiedad. Origen premium nacional.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <div class="ingredient-img-wrap">
+                    <img src="images/miel-agave.webp" alt="Miel de Agave orgánica" loading="lazy">
+                </div>
+                <h3>Miel de Agave — Dulzura sin Culpa</h3>
+                <p>Endulzante orgánico natural con bajo índice glucémico. Aporta un combustible saludable y sostenido, protegiendo los niveles óptimos de glucosa en sangre.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <div class="ingredient-img-wrap">
+                    <img src="images/ganoderma.jpg" alt="Ganoderma Lucidum hongo adaptógeno" loading="lazy">
+                </div>
+                <h3>Ganoderma Lucidum — El Hongo de la Longevidad</h3>
+                <p>El legendario hongo adaptógeno. Fortalece activamente la respuesta inmune, asiste en la oxigenación celular y combate el desgaste por estrés físico.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <div class="ingredient-img-wrap">
+                    <img src="images/te-negro.jpg" alt="Té Negro premium" loading="lazy">
+                </div>
+                <h3>Té Negro — Enfoque y Claridad Mental</h3>
+                <p>Aumenta los estados de enfoque, agudeza mental y concentración cognitiva, apoyando simultáneamente la digestión y la salud de las arterias.</p>
+            </div>
+            <div class="ingredient-card scroll-animate">
+                <div class="ingredient-img-wrap">
+                    <img src="images/extracto-uva.webp" alt="Extracto de Uva con Resveratrol" loading="lazy">
+                </div>
+                <h3>Extracto de Uva — Protección Cardiovascular</h3>
+                <p>Cargado con Resveratrol puro. Protege el sistema cardiovascular, optimiza el flujo sanguíneo y actúa como un potente antiinflamatorio sistémico.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         TESTIMONIOS (CUADRÍCULA ESTABLECIDA EN FORMATO 2X2)
+         ═══════════════════════════════════════════════ -->
+    <section class="section-container testimonials-section" id="testimonios">
+        <h2 class="section-title scroll-animate">Resultados que Inspiran Confianza</h2>
+        <p class="section-subtitle scroll-animate">Historias reales de personas que transformaron su bienestar con MultyDrink.</p>
+        <div class="testimonials-grid">
+            
+            <!-- Video 1 -->
             <div class="video-card scroll-animate">
                 <div class="video-container">
-                    <video controls playsinline webkit-playsinline poster="images/testimonio1-thumb.webp">
-                        <source src="videos/testimonio1.mp4" type="video/mp4">
-                    </video>
+                    <iframe src="https://www.youtube.com/embed/L3XsjEcadBM" title="Testimonio de Bienestar MultyDrink 1" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <p class="testimonial-author">Energía y Rendimiento Diario</p>
-                <p style="padding: 0 20px; font-size: 1rem; color: var(--text-muted); pb-10">"Un cambio completo en mi vitalidad desde los primeros días de uso."</p>
+                <div class="video-description">
+                    <h4>Rendimiento y Energía Activa</h4>
+                    <p>"El cambio de energía por las tardes fue inmediato. MultyDrink me da esa vitalidad limpia que mi día a día exigía."</p>
+                </div>
             </div>
 
+            <!-- Video 2 -->
             <div class="video-card scroll-animate">
                 <div class="video-container">
-                    <video controls playsinline webkit-playsinline poster="images/testimonio2-thumb.webp">
-                        <source src="videos/testimonio2.mp4" type="video/mp4">
-                    </video>
+                    <iframe src="https://www.youtube.com/embed/Zuqw2pC3pS0" title="Testimonio de Bienestar MultyDrink 2" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <p class="testimonial-author">Bienestar y Digestión Saludable</p>
-                <p style="padding: 0 20px; font-size: 1rem; color: var(--text-muted);">"Fácil de preparar, portátil y con resultados digestivos excelentes."</p>
+                <div class="video-description">
+                    <h4>Alivio y Salud Digestiva</h4>
+                    <p>"La sinergia de sus ingredientes naturales restablecieron mi salud digestiva por completo. Me siento ligera."</p>
+                </div>
             </div>
 
+            <!-- Video 3 -->
             <div class="video-card scroll-animate">
                 <div class="video-container">
-                    <video controls playsinline webkit-playsinline poster="images/testimonio3-thumb.webp">
-                        <source src="videos/testimonio3.mp4" type="video/mp4">
-                    </video>
+                    <iframe src="https://www.youtube.com/embed/MQWqF6UcmKk" title="Testimonio de Bienestar MultyDrink 3" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <p class="testimonial-author">Enfoque y Claridad Mental</p>
-                <p style="padding: 0 20px; font-size: 1rem; color: var(--text-muted);">"Me ayuda a mantener la concentración alta durante mis jornadas laborales."</p>
+                <div class="video-description">
+                    <h4>Vitalidad Celular Diaria</h4>
+                    <p>"Excelente alternativa saludable para sustituir bebidas azucaradas y energizantes artificiales dañinos."</p>
+                </div>
             </div>
 
+            <!-- Video 4 -->
             <div class="video-card scroll-animate">
                 <div class="video-container">
-                    <video controls playsinline webkit-playsinline poster="images/testimonio4-thumb.webp">
-                        <source src="videos/testimonio4.mp4" type="video/mp4">
-                    </video>
+                    <iframe src="https://www.youtube.com/embed/A8Ta0b3f-1Q" title="Testimonio de Bienestar MultyDrink 4" allowfullscreen loading="lazy"></iframe>
                 </div>
-                <p class="testimonial-author">Estilo de Vida Activo</p>
-                <p style="padding: 0 20px; font-size: 1rem; color: var(--text-muted);">"La comodidad del sachet individual me permite llevar mi salud a cualquier lado."</p>
+                <div class="video-description">
+                    <h4>Distribución y Oportunidad</h4>
+                    <p>"Un producto excepcional que no solo cuida la salud, sino que ofrece una oportunidad de crecimiento transparente."</p>
+                </div>
             </div>
+
         </div>
     </section>
 
-    <section class="purpose-section">
-        <div class="purpose-container scroll-animate">
-            <h2 style="color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 25px; font-weight: 800;">Un Propósito Mayor: Compartir Bienestar</h2>
-            <p style="font-size: 1.25rem; color: #34495e; line-height: 1.8; margin-bottom: 40px;">
-                Llevar salud a los demás no es solo una oportunidad comercial; es una <strong>responsabilidad social</strong>. Cuando compartes bienestar auténtico con personas que sufren de cansancio, estrés o problemas digestivos, estás transformando activamente sus vidas. Creemos firmemente que hacer el bien regresa multiplicado.
-            </p>
-            <a href="#comprar" class="btn">Elegir Mi Pack de Bienestar</a>
-        </div>
-    </section>
+    <!-- ═══════════════════════════════════════════════
+         PACKS DE CONSUMO — PRICING
+         ═══════════════════════════════════════════════ -->
+    <section class="pricing-section" id="packs">
+        <h2 class="section-title scroll-animate">Elige tu Plan de Vitalidad</h2>
+        <p class="section-subtitle scroll-animate">Cada pack incluye un obsequio exclusivo. Elige el que se adapte a tu estilo de vida.</p>
 
-    <section id="comprar" class="pricing-section bg-white-pure">
-        <h2 class="section-title scroll-animate" style="color: var(--primary-dark)">Elige tu Plan de Consumo</h2>
         <div class="pricing-grid">
-            
-            <div class="price-card scroll-animate">
+
+            <!-- PACK INICIO -->
+            <div class="price-card scroll-animate delay-1">
                 <div class="pack-image-container">
-                    <img src="images/pack-inicio.webp" alt="MultyDrink Pack Inicio">
+                    <img src="images/pack-inicio.webp" alt="Pack Inicio MultyDrink - 1 Caja" loading="lazy">
                 </div>
-                <div class="price-card-body">
-                    <div>
-                        <h3>PACK INICIO</h3>
-                        <p style="margin: 0; color: var(--text-muted); font-weight: 500;">Rutina de 7 días</p>
-                        <div class="price">COP $ 120.000</div>
-                        <p style="color: var(--primary-color); font-weight: 700; margin: 0 0 2px 0;">Envío GRATIS en Bogotá</p>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0 0 18px 0; font-style: italic;">(Aplica condiciones y restricciones)</p>
-                        <ul class="features-list">
-                            <li>1 Caja – 21 sobres</li>
-                            <li>7 días de consumo</li>
-                            <li>Ideal para conocer el producto</li>
-                            <li class="gift-item">+ Obsequio Especial Incluido</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20Pack%20Inicio." target="_blank" class="btn btn-whatsapp">QUIERO 1 CAJA</a>
+                <div class="pack-content">
+                    <h3>Pack Inicio</h3>
+                    <span class="pack-routine">Rutina de 7 días</span>
+                    <span class="price">$120.000 <span class="price-currency">COP</span></span>
+                    <ul class="pack-benefits-list">
+                        <li>1 Caja – 21 sobres de alta pureza</li>
+                        <li>Ideal para conocer el producto</li>
+                        <li>Activa tu energía celular desde el día 1</li>
+                    </ul>
+                    <span class="pack-shipping">🎁 Obsequio Especial de Bienestar Incluido</span>
+                </div>
+                <div class="pack-cta">
+                    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20Pack%20Inicio." target="_blank" class="btn">Quiero mi Pack Inicio</a>
                 </div>
             </div>
 
-            <div class="price-card featured scroll-animate">
-                <div class="badge">EL MÁS ELEGIDO</div>
+            <!-- PACK ENERGÍA — FEATURED -->
+            <div class="price-card featured scroll-animate delay-2">
+                <div class="featured-ribbon">EL MÁS ELEGIDO</div>
                 <div class="pack-image-container">
-                    <img src="images/pack-energia.webp" alt="MultyDrink Pack Energía">
+                    <img src="images/pack-energia.webp" alt="Pack Energía MultyDrink - 3 Cajas" loading="lazy">
                 </div>
-                <div class="price-card-body">
-                    <div>
-                        <h3>PACK ENERGÍA</h3>
-                        <p style="margin: 0; color: var(--text-muted); font-weight: 500;">Rutina de 21 días</p>
-                        <div class="price">COP $ 330.000</div>
-                        <p style="color: var(--primary-color); font-weight: 700; margin: 0 0 2px 0;">Envío GRATIS en Bogotá</p>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0 0 18px 0; font-style: italic;">(Aplica condiciones y restricciones)</p>
-                        <ul class="features-list">
-                            <li>3 Cajas – 63 sobres</li>
-                            <li>21 días de consumo</li>
-                            <li>Ideal para ver resultados reales</li>
-                            <li class="gift-item">+ Obsequio de Alta Vitalidad</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20Pack%20Energia." target="_blank" class="btn btn-whatsapp">QUIERO 3 CAJAS</a>
+                <div class="pack-content">
+                    <h3>Pack Energía</h3>
+                    <span class="pack-routine">Rutina de 21 días</span>
+                    <span class="price">$330.000 <span class="price-currency">COP</span></span>
+                    <p class="price-per-unit">$110.000/caja · Ahorras $30.000</p>
+                    <ul class="pack-benefits-list">
+                        <li>3 Cajas – 63 sobres para resultados reales</li>
+                        <li>Tratamiento completo de regeneración</li>
+                        <li>Energía sostenida durante 3 semanas</li>
+                        <li>Resultados visibles en bienestar</li>
+                    </ul>
+                    <span class="pack-shipping">🎁 Obsequio de Alta Vitalidad Incluido</span>
+                </div>
+                <div class="pack-cta">
+                    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20Pack%20Energia." target="_blank" class="btn btn-accent">Asegurar Pack Energía ⚡</a>
                 </div>
             </div>
 
-            <div class="price-card scroll-animate">
+            <!-- PACK FAMILIAR -->
+            <div class="price-card scroll-animate delay-3">
+                <span class="card-badge badge-savings">💎 MÁXIMO AHORRO</span>
                 <div class="pack-image-container">
-                    <img src="images/pack-familiar.webp" alt="MultyDrink Pack Familiar">
+                    <img src="images/pack-familiar.webp" alt="Pack Familiar MultyDrink - 6 Cajas" loading="lazy">
                 </div>
-                <div class="price-card-body">
-                    <div>
-                        <h3>PACK FAMILIAR</h3>
-                        <p style="margin: 0; color: var(--text-muted); font-weight: 500;">Rutina de 42 días</p>
-                        <div class="price">COP $ 550.000</div>
-                        <p style="color: var(--primary-color); font-weight: 700; margin: 0 0 2px 0;">Envío GRATIS en Bogotá</p>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0 0 18px 0; font-style: italic;">(Aplica condiciones y restricciones)</p>
-                        <ul class="features-list">
-                            <li>6 Cajas – 126 sobres</li>
-                            <li>42 días de consumo</li>
-                            <li>Máximo ahorro por caja</li>
-                            <li class="gift-item">+ Obsequio Premium Sorpresa</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20Pack%20Familiar." target="_blank" class="btn btn-whatsapp">QUIERO 6 CAJAS</a>
+                <div class="pack-content">
+                    <h3>Pack Familiar</h3>
+                    <span class="pack-routine">Rutina de 42 días</span>
+                    <span class="price">$550.000 <span class="price-currency">COP</span></span>
+                    <p class="price-per-unit">~$91.667/caja · Ahorras $170.000</p>
+                    <ul class="pack-benefits-list">
+                        <li>6 Cajas – 126 sobres de bienestar total</li>
+                        <li>Máximo ahorro por caja</li>
+                        <li>Ideal para toda la familia</li>
+                        <li>Perfecto para iniciar tu distribución</li>
+                    </ul>
+                    <span class="pack-shipping">🎁 Obsequio Premium Sorpresa Incluido</span>
+                </div>
+                <div class="pack-cta">
+                    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20interesa%20adquirir%20el%20Pack%20Familiar." target="_blank" class="btn">Ordenar Pack Familiar 💎</a>
                 </div>
             </div>
+
+        </div>
+        <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">*Consulta los beneficios de obsequios y coberturas de entrega con tu asesor de atención.</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         OPORTUNIDAD DE NEGOCIO — MLM
+         ═══════════════════════════════════════════════ -->
+    <section class="mlm-section" id="oportunidad">
+        <h2 class="section-title scroll-animate">Más que un Producto, una Oportunidad de Vida</h2>
+        <p class="section-subtitle scroll-animate">Únete a la red de distribuidores independientes que está llevando el bienestar colombiano al mundo.</p>
+
+        <div class="mlm-stats-grid">
+            <div class="mlm-stat scroll-animate delay-1">
+                <span class="mlm-stat-number">+20%</span>
+                <p class="mlm-stat-label">Descuento Distribuidor</p>
+                <p class="mlm-stat-desc">Accede a precios preferenciales superiores al 20% en toda la línea de productos.</p>
+            </div>
+            <div class="mlm-stat scroll-animate delay-2">
+                <span class="mlm-stat-number">20%</span>
+                <p class="mlm-stat-label">Bono Influencer</p>
+                <p class="mlm-stat-desc">Gana un 20% de comisión directa por cada venta que realices a tu red de contactos.</p>
+            </div>
+            <div class="mlm-stat scroll-animate delay-3">
+                <span class="mlm-stat-number">7%</span>
+                <p class="mlm-stat-label">Bono Residual</p>
+                <p class="mlm-stat-desc">Recibe un 7% de bonificación por las ventas de tu red, hasta el 7° nivel de profundidad.</p>
+            </div>
+        </div>
+
+        <p class="mlm-footer-text scroll-animate">Sin inventario obligatorio. Sin cuotas mensuales. Solo comparte bienestar y crece con una marca colombiana pionera. 🌎</p>
+
+        <div class="mlm-cta-wrap scroll-animate">
+            <a href="#contacto" class="btn btn-accent">Quiero ser Distribuidor 🚀</a>
         </div>
     </section>
 
-    <section id="contacto" class="section bg-white-pure" style="border-top: 1px solid rgba(22, 74, 39, 0.05);">
-        <div class="grid-layout" style="align-items: stretch;">
-            <div class="grid-image-container scroll-animate" style="height: 100%; display: flex;">
-                <img src="images/contacto-bienestar.webp" alt="Tu Bienestar con MultyDrink" style="object-fit: cover; height: 100%; width: 100%;">
-            </div>
+    <!-- ═══════════════════════════════════════════════
+         FORMULARIO DE CONTACTO (ALINEACIÓN E IMAGEN CONTROLADAS)
+         ═══════════════════════════════════════════════ -->
+    <section class="form-section" id="contacto">
+        <div class="form-split-grid">
             
-            <div class="native-form-box scroll-animate">
-                <h2 style="color: var(--primary-dark); font-size: 2.2rem; margin-bottom: 12px; font-weight: 800; text-align: left; line-height: 1.2;">Tu Bienestar Está a Un Paso</h2>
-                <p style="font-size: 1.02rem; color: var(--text-muted); margin-bottom: 25px; text-align: left; line-height: 1.6;">Déjanos tus datos y un asesor te contactará en minutos. Resuelve tus dudas, elige tu plan ideal y recibe tu pedido con la mayor comodidad.</p>
-                
-                <form onsubmit="handleNativeFormSubmit(event, 'Sección de Contacto Principal')">
-                    <div class="native-form-group">
-                        <input type="text" placeholder="Nombre Completo" required class="native-input">
-                    </div>
-                    <div class="native-form-group">
-                        <input type="tel" placeholder="Número de WhatsApp" required class="native-input">
-                    </div>
-                    <div class="native-form-group" style="margin-bottom: 22px;">
-                        <input type="text" placeholder="Ciudad / Municipio" required class="native-input">
-                    </div>
-                    <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 15px; border-radius: 12px; font-size: 1.1rem; border: none; cursor: pointer;">
-                        SOLICITAR ASESORÍA YA
-                    </button>
-                </form>
-
-                <ul class="form-features-list">
-                    <li>Asesoría personalizada sin compromiso</li>
-                    <li>Respuesta en menos de 30 minutos</li>
-                    <li>Envío seguro a toda Colombia</li>
-                    <li>Obsequio incluido en cada pack</li>
-                </ul>
+            <div class="form-info-side scroll-animate">
+                <div class="form-info-content">
+                    <h2>Tu Bienestar Está a Un Paso</h2>
+                    <p>Déjanos tus datos y un asesor te contactará en minutos. Resuelve tus dudas, elige tu plan ideal y recibe tu pedido con la mayor comodidad.</p>
+                    <ul class="form-trust-points">
+                        <li>Asesoría personalizada sin compromiso</li>
+                        <li>Respuesta en menos de 30 minutos</li>
+                        <li>Envío seguro a toda Colombia</li>
+                        <li>Obsequio especial incluido en cada pack</li>
+                    </ul>
+                </div>
+                <!-- Imagen recuperada y alineada perfectamente al eje central de la sección -->
+                <div class="large-image-wrapper" style="box-shadow: none; border-color: rgba(255,255,255,0.15);">
+                    <img src="images/imgi_3_life style1.jpg" alt="Estilo de vida saludable con MultyDrink" loading="lazy">
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="distribuidor" class="partner-section">
-        <div class="partner-container">
-            <div class="discount-badge scroll-animate">RECIBE MÁS DEL 20% DE DESCUENTO</div>
-            <h2 class="scroll-animate" style="font-size: 2.8rem; margin-bottom: 25px; font-weight: 800;">Conviértete en Socio Distribuidor</h2>
-            <p class="scroll-animate" style="font-size: 1.3rem; max-width: 740px; margin: 0 auto 45px auto; opacity: 0.95; line-height: 1.8;">
-                Lleva un mensaje de bienestar y vitalidad a gran escala. Obtén acceso preferencial a stock y compras corporativas con un descuento exclusivo superior al 20%.
-            </p>
             <div class="scroll-animate">
-                <a href="https://wa.me/573041222672?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20para%20obtener%20el%20descuento%20de%20Socio%20Distribuidor%20MultyDrink." target="_blank" class="btn">
-                    Quiero Recibir Detalles como Socio
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="negocio" class="business-section">
-        <div class="business-container">
-            <h2 class="section-title scroll-animate" style="color: var(--primary-dark)">Plan para Networkers</h2>
-            
-            <div class="business-intro scroll-animate">
-                <p>Nuestra red de mercadeo simplifica las ganancias tanto como nuestro producto simplifica el bienestar. Concéntrate en compartir salud y activa nuestro potente plan de compensación de 2 bonos directos.</p>
-            </div>
-
-            <div class="bonus-grid">
-                
-                <div class="bonus-card scroll-animate">
-                    <div>
-                        <div class="bonus-header">
-                            <span class="bonus-icon-badge">Bono Directo</span>
-                            <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-color);">20%</div>
+                <div class="main-form-box">
+                    <h3>Reserva tu Pack con Descuento</h3>
+                    <p class="form-sub">Completa tus datos y te contactamos por WhatsApp al instante.</p>
+                    <form action="https://wa.me/573041222672" method="GET" target="_blank" onsubmit="return enviarAWhatsApp(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
                         </div>
-                        <h3 class="bonus-title">Bono Influencer</h3>
-                        <p class="bonus-body">Premia de manera inmediata tu capacidad de recomendación y reclutamiento personal. Recibe comisiones significativas por activar la red.</p>
-                        <ul class="bonus-features">
-                            <li>20% de comisión de todas las compras del mes de tus directos.</li>
-                            <li>Sin límites de socios directos que puedas registrar.</li>
-                            <li>Cálculo y pago mensual sobre volumen de compra.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bonus-card scroll-animate">
-                    <div>
-                        <div class="bonus-header">
-                            <span class="bonus-icon-badge">Regalías</span>
-                            <div style="font-size: 2.2rem; font-weight: 800; color: var(--primary-color);">7%</div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 300 123 4567" inputmode="numeric" required>
                         </div>
-                        <h3 class="bonus-title">Bono Residual</h3>
-                        <p class="bonus-body">El verdadero motor de tu libertad financiera a largo plazo. Gana por la duplicación y el volumen de consumo de toda tu red.</p>
-                        <ul class="bonus-features">
-                            <li>7% de comisión sobre el volumen de negocio del equipo.</li>
-                            <li>Compresión activa aplicada hasta el 7° nivel de profundidad.</li>
-                            <li>Ganancias recurrentes basadas en la recompra de tu red.</li>
-                        </ul>
-                    </div>
+                        <div class="form-group">
+                            <label for="ciudad">Ciudad de Destino</label>
+                            <input type="text" id="ciudad" name="ciudad" placeholder="Ej. Bogotá, Medellín..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kitSelect">Selecciona tu Pack</label>
+                            <select id="kitSelect" name="kit" required>
+                                <option value="Pack Inicio (1 Caja - $120.000)">Pack Inicio – 1 Caja ($120.000)</option>
+                                <option value="Pack Energia (3 Cajas - $330.000)" selected>Pack Energía – 3 Cajas ($330.000) ⭐ Más Elegido</option>
+                                <option value="Pack Familiar (6 Cajas - $550.000)">Pack Familiar – 6 Cajas ($550.000) 💎</option>
+                                <option value="Quiero ser Distribuidor">🚀 Quiero ser Distribuidor Independiente</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="margin-top: 10px;">Enviar mi Pedido por WhatsApp 💬</button>
+                    </form>
                 </div>
-
-            </div>
-
-            <div class="business-cta-box scroll-animate">
-                <h3>Multiplica tu Impacto</h3>
-                <p>Únete hoy a nuestro equipo de liderazgo y recibe todas las herramientas, soporte y esta misma página web personalizada para expandir tu negocio de forma inmediata.</p>
-                <a href="https://wa.me/573041222672?text=Hola%2C%20me%20interesa%20conocer%20el%20plan%20de%20compensaci%C3%B3n%20y%20c%C3%B3mo%20duplicar%20mi%20p%C3%A1gina." target="_blank" class="btn btn-whatsapp">
-                    Quiero ser Socio Emprendedor
-                </a>
-                <div class="duplication-hint">Sistema Autoduplicable Inteligente</div>
             </div>
 
         </div>
     </section>
 
-    <section id="faq" class="faq-section">
-        <h2 class="section-title scroll-animate" style="color: var(--primary-dark)">Tus dudas resueltas</h2>
-        <div class="faq-container">
+    <!-- ═══════════════════════════════════════════════
+         PREGUNTAS FRECUENTES (PREGUNTA DESTACADA PRESERVADA)
+         ═══════════════════════════════════════════════ -->
+    <section class="section-container" id="preguntas">
+        <h2 class="section-title scroll-animate">Lo que Nuestros Clientes Siempre Quieren Saber</h2>
+        <p class="section-subtitle scroll-animate">Resolvemos tus dudas para que tomes la mejor decisión con confianza.</p>
+        <div class="faq-wrapper">
             
             <div class="faq-item scroll-animate">
-                <button class="faq-question">¿MultyDrink es un medicamento?</button>
+                <button class="faq-question">¿Qué es el mucílago de café y por qué es tan especial?</button>
                 <div class="faq-answer">
-                    <p>No. MultyDrink es un SuperAlimento botánico en sachet que acompaña la alimentación diaria de manera óptima.</p>
+                    <p>Es la capa protectora del grano de café colombiano, rica en antioxidantes y polifenoles. A diferencia de la cafeína convencional, el mucílago aporta energía constante de absorción celular profunda sin alterar el sistema nervioso, sin producir taquicardias ni picos de ansiedad. Es nuestro ingrediente insignia y orgullo nacional.</p>
                 </div>
             </div>
-
+            
             <div class="faq-item scroll-animate">
-                <button class="faq-question">¿Puedo tomarlo todos los días?</button>
+                <button class="faq-question">¿Cómo se consume MultyDrink?</button>
                 <div class="faq-answer">
-                    <p>Sí, puede incorporarse a la rutina diaria dentro de una alimentación equilibrada. Respeta la recomendación de uso.</p>
+                    <p>Se recomienda diluir un sobre individual en un vaso de agua fría o tibia por las mañanas para activar tu metabolismo y tu concentración desde las primeras horas del día. Cada caja contiene 21 sobres individuales de alta pureza, listos para consumir de forma práctica.</p>
                 </div>
             </div>
-
+            
             <div class="faq-item scroll-animate">
-                <button class="faq-question">¿Pueden tomarlo los niños?</button>
+                <button class="faq-question">¿Los envíos son seguros a todo el país?</button>
                 <div class="faq-answer">
-                    <p>Puede ser consumido por niños desde los 2 años, siguiendo la dosis orientativa indicada y bajo supervisión de un adulto.</p>
+                    <p>Totalmente. Despachamos tus pedidos directamente con las transportadoras líderes de Colombia. Todos los packs incluyen opciones y gestiones de obsequios preferenciales. Consulta los detalles de entrega con nuestro asesor por WhatsApp.</p>
                 </div>
             </div>
-
+            
             <div class="faq-item scroll-animate">
-                <button class="faq-question">¿Reemplaza comidas o tratamientos?</button>
+                <button class="faq-question">¿Cuánto tiempo tarda en llegar mi pedido?</button>
                 <div class="faq-answer">
-                    <p>No. MultyDrink no reemplaza comidas ni tratamientos médicos. Es una bebida botánica complementaria catalogada como SuperAlimento.</p>
+                    <p>Nuestros despachos a nivel nacional manejan un tiempo estimado de entrega de un promedio de 5 a 10 días hábiles, dependiendo de tu ubicación exacta, municipio o zona de tránsito. Una vez despachado, recibirás tu respectivo número de guía para realizar el seguimiento en tiempo real de tu bienestar celular.</p>
                 </div>
             </div>
-
-            <div class="faq-item scroll-animate">
-                <button class="faq-question">¿Realizan entrega en toda Colombia?</button>
+            
+            <!-- Pregunta de negocio / Ingresos Distinguida Exitosamente -->
+            <div class="faq-item scroll-animate faq-highlighted">
+                <button class="faq-question">¿Puedo generar ingresos distribuyendo MultyDrink?</button>
                 <div class="faq-answer">
-                    <p>Sí. Hacemos envíos a la mayoría de ciudades y municipios de Colombia por medio de transportadoras aliadas. Los tiempos pueden variar según la zona.</p>
+                    <p>¡Absolutamente! Nuestro plan de compensación incluye un Bono Influencer del 20% por venta directa, un Bono Residual del 7% hasta el 7° nivel de tu red, y descuentos superiores al 20% en producto como distribuidor independiente. Sin inventario obligatorio y sin cuotas mensuales. <a href="#contacto">Solicita más información aquí</a> y un asesor te explicará el modelo completo.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════
+         FOOTER COMPLETAMENTE INTEGRADO
+         ═══════════════════════════════════════════════ -->
     <footer>
-        <p>© 2026 MultyDrink. Todos los derechos reservados.</p>
-        <p class="credits">Desarrollado para redes de distribución y duplicación digital.</p>
+        <p class="footer-brand">MultyDrink</p>
+        <p class="footer-tagline">Innovación en bienestar celular y emprendimiento de origen colombiano 🇨🇴</p>
+        <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#packs">Planes</a>
+            <a href="#oportunidad">Oportunidad</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <p>&copy; 2026 MultyDrink. Todos los derechos reservados.</p>
+        <p class="footer-disclaimer">Este producto es un SuperAlimento y no pretende diagnosticar, tratar, curar ni prevenir ninguna enfermedad. Los resultados pueden variar. Consulte a su médico antes de iniciar cualquier cambio alimenticio. Aplican condiciones para promociones u obsequios.</p>
     </footer>
 
-    <a href="https://wa.me/573041222672?text=Hola%2C%20me%20interesa%20adquirir%20el%20kit%20MultyDrink." class="whatsapp-float" target="_blank" id="floatWa">
-        <span>Pedir por WhatsApp</span>
-    </a>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/573041222672?text=Hola%20buen%20d%C3%ADa%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20MultyDrink." target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">💬</a>
 
-    <div id="systemePopup" class="custom-popup-overlay">
+    <!-- ═══════════════════════════════════════════════
+         VENTANA EMERGENTE (EXIT-INTENT POPUP SHELL)
+         ═══════════════════════════════════════════════ -->
+    <div class="custom-popup-overlay" id="exitPopup">
         <div class="custom-popup-box">
-            <button class="custom-popup-close" id="closePopupBtn" aria-label="Cerrar ventana">&times;</button>
+            <button class="custom-popup-close" id="closePopup" aria-label="Cerrar ventana">&times;</button>
             <div class="custom-popup-header">
-                <h3>¿Aún no estás listo para empezar?</h3>
-                <p>No te vayas con las manos vacías. Regístrate abajo y descubre cómo activar tu máximo rendimiento destruyendo por completo la complejidad de los suplementos tradicionales.</p>
+                <h3>¡Espera! No dejes ir tu Bienestar</h3>
+                <p>Consigue un obsequio especial de alta vitalidad agendando tu consulta de salud sin costos adicionales hoy mismo.</p>
             </div>
             
-            <form onsubmit="handleNativeFormSubmit(event, 'Pop-up de Salida Exit-Intent')">
-                <div class="native-form-group">
-                    <input type="text" placeholder="Nombre Completo" required class="native-input">
-                </div>
-                <div class="native-form-group">
-                    <input type="tel" placeholder="Número de WhatsApp" required class="native-input">
-                </div>
-                <div class="native-form-group" style="margin-bottom: 20px;">
-                    <input type="text" placeholder="Ciudad / Municipio" required class="native-input">
-                </div>
-                <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 14px; border-radius: 12px; font-size: 1.1rem; border: none; cursor: pointer;">
-                    QUIERO RECIBIR ASESORÍA
-                </button>
-            </form>
+            <!-- SCRIPT DE SYSTEME.IO EJECUTADO DIRECTAMENTE DENTRO DEL POPUP MODAL -->
+            <script id="form-script-tag-24541894" src="https://danielcurrea46.systeme.io/public/remote/page/4209209290b5a71411ae2d3e760f99c27ecdc9e8.js"></script>
         </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════
+         JAVASCRIPT OPTIMIZADO
+         ═══════════════════════════════════════════════ -->
     <script>
-        // LÓGICA DE PROCESAMIENTO NATIVO DIRECTO A WHATSAPP
-        function handleNativeFormSubmit(event, origenFormulario) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const inputs = form.querySelectorAll('input');
-            
-            const nombre = inputs[0].value.trim();
-            const whatsappUsuario = inputs[1].value.trim();
-            const ciudad = inputs[2].value.trim();
-            
-            // Construcción del mensaje comercial estratégico para Neuroventas
-            const mensajeMensajeria = `Hola, vengo de la landing page (${origenFormulario}) y deseo solicitar una asesoría personalizada sobre el SuperAlimento MultyDrink.\n\n📌 *Datos del Prospecto*:\n• *Nombre:* ${nombre}\n• *WhatsApp de contacto:* ${whatsappUsuario}\n• *Ciudad/Municipio:* ${ciudad}\n\nQuedo atento a la respuesta en minutos para coordinar mi pack ideal con obsequio.`;
-            
-            const urlFinalWhatsApp = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensajeMensajeria)}`;
-            
-            // Abre de forma limpia en otra pestaña
-            window.open(urlFinalWhatsApp, '_blank');
-            
-            // Cierra el popup si el origen fue el modal de salida
-            if(origenFormulario.includes('Pop-up')) {
-                closeSystemePopup();
-            }
-            
-            form.reset();
-        }
+        document.addEventListener('DOMContentLoaded', () => {
 
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            // ==========================================
-            // LÓGICA DE DUPLICACIÓN DE WHATSAPP
-            // ==========================================
-            if (typeof NUMERO_WHATSAPP !== 'undefined' && NUMERO_WHATSAPP.trim() !== '') {
-                const cleanNumber = NUMERO_WHATSAPP.replace(/[+\s-]/g, ''); 
-                const whatsappLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
-                
-                whatsappLinks.forEach(link => {
-                    try {
-                        const url = new URL(link.href);
-                        const textParam = url.searchParams.get('text') || '';
-                        link.href = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(textParam)}`;
-                    } catch (e) {
-                        console.error("No se pudo actualizar el enlace de WhatsApp: ", link.href, e);
-                    }
-                });
-            }
-
-            // ==========================================
-            // CONTROL MENÚ CELULAR
-            // ==========================================
-            const menuBtn = document.getElementById('menuBtn');
+            // ─── 1. MENÚ HAMBURGUESA ───
+            const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
-            const menuBackdrop = document.getElementById('menuBackdrop');
-            const menuLinks = navMenu.querySelectorAll('a');
 
-            function toggleMenu() {
-                const isOpen = navMenu.classList.toggle('mobile-open');
-                if (isOpen) {
-                    menuBackdrop.classList.add('active');
-                    menuBtn.textContent = '✕ Cerrar';
-                } else {
-                    menuBackdrop.classList.remove('active');
-                    menuBtn.textContent = '☰ Menú';
-                }
-            }
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('mobile-open');
+                });
 
-            function closeMenu() {
-                navMenu.classList.remove('mobile-open');
-                menuBackdrop.classList.remove('active');
-                menuBtn.textContent = '☰ Menú';
-            }
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('mobile-open');
+                    });
+                });
 
-            menuBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            menuBackdrop.addEventListener('click', closeMenu);
-
-            menuLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-
-            window.addEventListener('scroll', function() {
-                if (navMenu.classList.contains('mobile-open')) {
-                    closeMenu();
-                }
-            });
-
-            // ==========================================
-            // LÓGICA EXIT-INTENT e UP-SCROLL PARA POP-UP
-            // ==========================================
-            const popupOverlay = document.getElementById('systemePopup');
-            const closePopupBtn = document.getElementById('closePopupBtn');
-            
-            let popupMostrado = false;
-            let ultimoScrollTop = 0; 
-
-            // Detección para PC (Mouse sale por arriba)
-            function mostrarPopupMouseLeave(e) {
-                if (e.clientY < 20 && !popupMostrado) {
-                    abrirPopup();
-                }
-            }
-            document.addEventListener('mouseleave', mostrarPopupMouseLeave);
-            
-            // Detección para Celulares (Scroll hacia arriba)
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop < ultimoScrollTop && scrollTop > 400 && !popupMostrado) {
-                    let diferencia = ultimoScrollTop - scrollTop;
-                    if (diferencia > 10) { 
-                        abrirPopup();
-                    }
-                }
-                ultimoScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-            }, { passive: true });
-
-            function abrirPopup() {
-                popupMostrado = true;
-                if (popupOverlay) {
-                    popupOverlay.classList.add('popup-active');
-                    document.body.style.overflow = 'hidden'; 
-                }
-            }
-
-            window.closeSystemePopup = function() {
-                if (popupOverlay) {
-                    popupOverlay.classList.remove('popup-active');
-                    document.body.style.overflow = ''; 
-                }
-            }
-
-            if (closePopupBtn) {
-                closePopupBtn.addEventListener('click', window.closeSystemePopup);
-            }
-
-            if (popupOverlay) {
-                popupOverlay.addEventListener('click', function(e) {
-                    if (e.target === popupOverlay) {
-                        window.closeSystemePopup();
+                document.addEventListener('click', (e) => {
+                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                        navMenu.classList.remove('mobile-open');
                     }
                 });
             }
 
-            // ==========================================
-            // ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
-            // ==========================================
+            // ─── 2. ANIMACIÓN POR SCROLL (Intersection Observer) ───
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-visible');
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => observer.observe(el));
+
+            // ─── 3. ACORDEÓN INTERACTIVO DE FAQs ───
             const faqQuestions = document.querySelectorAll('.faq-question');
-            
+
             faqQuestions.forEach(question => {
                 question.addEventListener('click', function() {
                     const item = this.parentElement;
                     const answer = this.nextElementSibling;
-                    
+
                     if (item.classList.contains('active')) {
                         answer.style.maxHeight = null;
                         item.classList.remove('active');
@@ -1776,28 +1786,87 @@
                             i.classList.remove('active');
                             i.querySelector('.faq-answer').style.maxHeight = null;
                         });
+
                         item.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
                     }
                 });
             });
 
-            // ==========================================
-            // ANIMACIÓN POR SCROLL (Intersection Observer)
-            // ==========================================
-            const animatedElements = document.querySelectorAll('.scroll-animate');
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.15 };
+            // ─── 4. COUNTDOWN TIMER ───
+            function updateCountdown() {
+                const now = new Date();
+                const endOfDay = new Date(now);
+                endOfDay.setHours(23, 59, 59, 999);
+                const diff = endOfDay - now;
 
-            const observer = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.classList.add('animate-visible');
-                    }
+                if (diff <= 0) return;
+
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                const pad = (n) => String(n).padStart(2, '0');
+                const countdownEl = document.getElementById('heroCountdown');
+                if (countdownEl) {
+                    countdownEl.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+                }
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // ─── 5. LÓGICA REFINADA DE EXIT INTENT (POPUP EMERGENTE) ───
+            const exitPopup = document.getElementById('exitPopup');
+            const closePopup = document.getElementById('closePopup');
+            let popupTriggered = false;
+
+            // Trigger al mover el mouse fuera del documento (intención de cerrar pestaña)
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY < 20 && !popupTriggered) {
+                    exitPopup.style.display = 'flex';
+                    setTimeout(() => {
+                        exitPopup.classList.add('popup-active');
+                    }, 10);
+                    popupTriggered = true;
+                }
+            });
+
+            // Cerrar el popup al hacer clic en la equis (X)
+            if (closePopup) {
+                closePopup.addEventListener('click', () => {
+                    exitPopup.classList.remove('popup-active');
+                    setTimeout(() => {
+                        exitPopup.style.display = 'none';
+                    }, 300);
                 });
-            }, observerOptions);
+            }
 
-            animatedElements.forEach(el => observer.observe(el));
+            // Cerrar el popup al hacer clic fuera de la caja blanca
+            exitPopup.addEventListener('click', (e) => {
+                if (e.target === exitPopup) {
+                    exitPopup.classList.remove('popup-active');
+                    setTimeout(() => {
+                        exitPopup.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
+
+        // ─── 6. ENVÍO DINÁMICO A WHATSAPP ───
+        function enviarAWhatsApp(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const kit = document.getElementById('kitSelect').value;
+
+            const mensaje = `Hola buen día, mi nombre es ${nombre}, mi teléfono es ${telefono}, escribo desde la ciudad de ${ciudad} y estoy interesado(a) en adquirir el ${kit}.`;
+            const urlWhatsApp = `https://wa.me/573041222672?text=${encodeURIComponent(mensaje)}`;
+
+            window.open(urlWhatsApp, '_blank');
+            return false;
+        }
     </script>
 </body>
 </html>
