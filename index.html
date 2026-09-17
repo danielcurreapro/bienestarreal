@@ -74,7 +74,7 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        img {
+        img, video {
             max-width: 100%;
             height: auto;
         }
@@ -325,9 +325,11 @@
             box-shadow: var(--shadow-lg);
             border: 4px solid var(--white);
             position: relative;
+            background-color: #000;
         }
 
-        .large-image-wrapper img {
+        .large-image-wrapper img, 
+        .large-image-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -484,7 +486,7 @@
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Forzado estricto 2x2 en PC */
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             max-width: 1000px;
             margin: 0 auto;
@@ -509,7 +511,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-top: 140%; /* Proporción ideal optimizada */
+            padding-top: 140%;
             background-color: #000;
         }
 
@@ -844,7 +846,7 @@
             gap: 60px;
             max-width: 1200px;
             margin: 0 auto;
-            align-items: center; /* Alineación vertical perfecta garantizada */
+            align-items: center;
         }
 
         .form-info-side {
@@ -1025,7 +1027,6 @@
             transition: var(--transition);
         }
 
-        /* Estilo premium para resaltar la pregunta de negocio */
         .faq-item.faq-highlighted {
             border: 2px solid var(--accent-color);
             background-color: rgba(255, 152, 0, 0.02);
@@ -1289,7 +1290,7 @@
             .hero { grid-template-columns: 1fr; text-align: center; padding-top: 40px; }
             .hero-text h1 { font-size: 2.2rem; }
             .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .testimonials-grid { grid-template-columns: 1fr; } /* Adaptación a 1 columna en móvil */
+            .testimonials-grid { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
             .form-split-grid { grid-template-columns: 1fr; gap: 40px; }
             .form-info-side { text-align: center; }
@@ -1323,7 +1324,7 @@
     </header>
 
     <!-- ═══════════════════════════════════════════════
-         HERO SECTION
+         HERO SECTION (CON VIDEO INTEGRADO)
          ═══════════════════════════════════════════════ -->
     <section class="hero" id="inicio">
         <div class="hero-text">
@@ -1340,7 +1341,10 @@
         </div>
         <div class="scroll-animate">
             <div class="large-image-wrapper">
-                <img src="images/producto-principal.webp" alt="MultyDrink - Bebida funcional premium con Mucílago de Café Colombiano" loading="eager">
+                <video controls playsinline poster="images/producto-principal.webp" preload="metadata">
+                    <source src="H:\PROYECTOS - PLANES\PROYECTOS CUPA59\MultyHealth Colombia\GitHub ok\bienestarreal\images\Que es MultyDrink y que hace en el cuepo.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video HTML5.
+                </video>
             </div>
         </div>
     </section>
@@ -1590,7 +1594,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         FORMULARIO DE CONTACTO (ALINEACIÓN E IMAGEN CONTROLADAS)
+         FORMULARIO DE CONTACTO
          ═══════════════════════════════════════════════ -->
     <section class="form-section" id="contacto">
         <div class="form-split-grid">
@@ -1606,7 +1610,6 @@
                         <li>Obsequio especial incluido en cada pack</li>
                     </ul>
                 </div>
-                <!-- Imagen recuperada y alineada perfectamente al eje central de la sección -->
                 <div class="large-image-wrapper" style="box-shadow: none; border-color: rgba(255,255,255,0.15);">
                     <img src="images/imgi_3_life style1.jpg" alt="Estilo de vida saludable con MultyDrink" loading="lazy">
                 </div>
@@ -1647,7 +1650,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         PREGUNTAS FRECUENTES (PREGUNTA DESTACADA PRESERVADA)
+         PREGUNTAS FRECUENTES
          ═══════════════════════════════════════════════ -->
     <section class="section-container" id="preguntas">
         <h2 class="section-title scroll-animate">Lo que Nuestros Clientes Siempre Quieren Saber</h2>
@@ -1682,7 +1685,6 @@
                 </div>
             </div>
             
-            <!-- Pregunta de negocio / Ingresos Distinguida Exitosamente -->
             <div class="faq-item scroll-animate faq-highlighted">
                 <button class="faq-question">¿Puedo generar ingresos distribuyendo MultyDrink?</button>
                 <div class="faq-answer">
@@ -1694,7 +1696,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         FOOTER COMPLETAMENTE INTEGRADO
+         FOOTER
          ═══════════════════════════════════════════════ -->
     <footer>
         <p class="footer-brand">MultyDrink</p>
@@ -1723,7 +1725,6 @@
                 <p>Consigue un obsequio especial de alta vitalidad agendando tu consulta de salud sin costos adicionales hoy mismo.</p>
             </div>
             
-            <!-- SCRIPT DE SYSTEME.IO EJECUTADO DIRECTAMENTE DENTRO DEL POPUP MODAL -->
             <script id="form-script-tag-24541894" src="https://danielcurrea46.systeme.io/public/remote/page/4209209290b5a71411ae2d3e760f99c27ecdc9e8.js"></script>
         </div>
     </div>
@@ -1816,12 +1817,11 @@
             updateCountdown();
             setInterval(updateCountdown, 1000);
 
-            // ─── 5. LÓGICA REFINADA DE EXIT INTENT (POPUP EMERGENTE) ───
+            // ─── 5. LÓGICA DE EXIT INTENT (POPUP EMERGENTE) ───
             const exitPopup = document.getElementById('exitPopup');
             const closePopup = document.getElementById('closePopup');
             let popupTriggered = false;
 
-            // Trigger al mover el mouse fuera del documento (intención de cerrar pestaña)
             document.addEventListener('mouseleave', (e) => {
                 if (e.clientY < 20 && !popupTriggered) {
                     exitPopup.style.display = 'flex';
@@ -1832,7 +1832,6 @@
                 }
             });
 
-            // Cerrar el popup al hacer clic en la equis (X)
             if (closePopup) {
                 closePopup.addEventListener('click', () => {
                     exitPopup.classList.remove('popup-active');
@@ -1842,7 +1841,6 @@
                 });
             }
 
-            // Cerrar el popup al hacer clic fuera de la caja blanca
             exitPopup.addEventListener('click', (e) => {
                 if (e.target === exitPopup) {
                     exitPopup.classList.remove('popup-active');
